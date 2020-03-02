@@ -6,6 +6,7 @@ import Profile from "./profile.jpg"
 export default class BaseKY extends React.Component {
     constructor(props) {
         super(props);
+        //test
         this.state = {
             degree: {
                 school: "Tunku Abdul Rahman University College",
