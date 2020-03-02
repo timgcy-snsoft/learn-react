@@ -40,6 +40,25 @@ export default class LandingPage extends React.Component {
                 <li>{contact}</li>
                 <li>{email}</li>
               </ul>
+
+              <ul className={"social-site"}>
+                <li>
+                  <a href="https://www.facebook.com/timothygcy">Facebook</a>
+                </li>
+                <li>
+                  <a href="https://instagram.com/bleckshiba_film?igshid=hdqy5jnas534">
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/timothy_gcy">Twitter</a>
+                </li>
+                <li>
+                  <a href="https://my.linkedin.com/in/timothy-goh-4269ba164">
+                    LinkedIn
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
