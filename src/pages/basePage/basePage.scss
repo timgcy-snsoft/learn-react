@@ -1,3 +1,40 @@
 .base-page {
-    padding: 20px;
+    padding: 15px;
+    height: 90px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: black;
+}
+
+.base-page-header {
+    width: 100%;
+    height: 60px;
+    min-width: 555px;
+}
+
+.base-page ul{
+    list-style: none;
+    width: 300px;
+    min-width: 300px;
+    float: right;
+    height: 60px;
+}
+
+.base-page ul li {
+    display: inline-block;
+    font-size: 17px;
+    height: 30px;
+    width: 85px;
+    text-align: center;
+    color: white;
+}
+
+.page-title {
+    font-size: 38px;
+    width: 20%;
+    min-width: 250px;
+    float: left;
+    text-align: center;
+    color: white;
 }

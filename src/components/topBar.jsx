@@ -37,7 +37,7 @@ export default class TopBar extends React.Component {
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/">Home</NavLink>
+                            <NavLink href="/LiewYihChan">Liew Yih Chan</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
