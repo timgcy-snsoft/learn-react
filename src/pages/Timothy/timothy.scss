@@ -16,6 +16,7 @@
 
 .box {
   max-width: 1620px;
+  min-width: 468px;
   margin: auto;
   width: 100%;
   padding-left: 0px;
@@ -25,19 +26,18 @@
 .media {
   display: block;
   align-items: flex-start;
-  margin: auto;
 }
 
 .img-panel {
   float: left;
   display: flex;
   padding-right: 125px;
-  margin: auto;
+  padding-bottom: 50px;
 }
 
 .img-panel img {
   vertical-align: middle;
-  margin: auto;
+  position: relative;
 }
 
 .desc-panel {
@@ -45,7 +45,6 @@
   flex: 1;
   align-self: center;
   vertical-align: middle;
-  margin: auto;
 }
 
 .desc-panel h6 {
