@@ -33,11 +33,14 @@ export default class TopBar extends React.Component {
         return (
             <Navbar color="light" light expand="md">
                 <NavbarBrand href="/">React</NavbarBrand>
-                <NavbarToggler onClick={this.handleMenuToggle}/>
+                <NavbarToggler onClick={this.handleMenuToggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
                             <NavLink href="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/kychok/">KY Chok</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

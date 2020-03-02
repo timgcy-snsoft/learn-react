@@ -1,0 +1,27 @@
+.silk {
+  background: radial-gradient(100% 225% at 100% 0, red 0, #000 100%), linear-gradient(266deg, #00c2ff, #000),
+    linear-gradient(135deg, #cdffeb, #cdffeb 36%, #009f9d 0, #009f9d 60%, #07456f 0, #07456f 67%, #0f0a3c 0, #0f0a3c);
+  background-blend-mode: overlay, hard-light, normal;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.glass {
+  background: rgba(21, 21, 35, 0.618);
+  -webkit-backdrop-filter: saturate(180%) blur(80px);
+  backdrop-filter: saturate(180%) blur(80px);
+  border-radius: 3rem;
+  margin: 10px 0px 20px;
+}
+
+.containerEdu {
+  padding: 30px;
+}
+
+.profileImg{
+    height:150px;
+    width:120px;
+}
+.flex{
+    display:flex;
+}
