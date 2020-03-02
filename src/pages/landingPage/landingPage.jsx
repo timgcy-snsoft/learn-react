@@ -12,7 +12,7 @@ export default class LandingPage extends React.Component {
     render() {
         return (
             <BasePage title={"Home Page"}>
-                Hi, i am {this.state.name}
+                Hi, i am {this.state.name} sss
             </BasePage>
         );
     }
