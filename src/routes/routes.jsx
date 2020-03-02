@@ -14,10 +14,7 @@ export default class Routes extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          {/* <Route path="/Timothy" component={Timothy} /> */}
-          <Route path="/Timothy">
-            <Timothy />
-          </Route>
+          <Route path="/Timothy" component={Timothy} />
         </Switch>
       </BrowserRouter>
     );

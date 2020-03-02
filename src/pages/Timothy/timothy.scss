@@ -38,6 +38,7 @@
 .img-panel img {
   vertical-align: middle;
   position: relative;
+  margin-top: 32px;
 }
 
 .desc-panel {
@@ -45,6 +46,7 @@
   flex: 1;
   align-self: center;
   vertical-align: middle;
+  width: 360px;
 }
 
 .desc-panel h6 {

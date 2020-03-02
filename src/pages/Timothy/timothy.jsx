@@ -5,18 +5,29 @@ import React from "react";
 import BasePage from "../basePage/basePage";
 import "./timothy.scss";
 
-export default class LandingPage extends React.Component {
+export default class Timothy extends React.Component {
   render() {
     const timothy = {
       name: "Timothy Goh",
       age: 22,
       occupation: "developer",
       hobby: "photography",
+      msg:
+        "Why I choose to be a developer? I feel this kind of occupation is intruiging. All I need to do is to just deal with the problem I faced and fix it.",
       birthday: "6th May 1998",
       email: "timothygoh@snsoft.my",
       contact: "+60 16 - 576 9856"
     };
-    const { name, age, occupation, hobby, birthday, email, contact } = timothy;
+    const {
+      name,
+      age,
+      occupation,
+      hobby,
+      msg,
+      birthday,
+      email,
+      contact
+    } = timothy;
     return (
       <BasePage>
         <div className={"container box"}>
@@ -35,10 +46,13 @@ export default class LandingPage extends React.Component {
                 I'm a 90's and now I'm {age}, workingas a {occupation}.<br />
                 I'm a {hobby} lover.
               </p>
+              <p>{msg}</p>
               <ul className={"basic-info"}>
-                <li>{birthday}</li>
-                <li>{contact}</li>
-                <li>{email}</li>
+                <li>BD: {birthday}</li>
+                <li>Tel: {contact}</li>
+                <li>
+                  Email: <a href="mailto:timothygoh@snsoft.my">{email}</a>
+                </li>
               </ul>
 
               <ul className={"social-site"}>
