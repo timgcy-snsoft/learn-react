@@ -22,7 +22,7 @@ export default class TopBar extends React.Component {
     };
     this.handleMenuToggle = this.handleMenuToggle.bind(this);
   }
-      
+
   handleMenuToggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -47,6 +47,8 @@ export default class TopBar extends React.Component {
             </NavItem>
             <NavItem>
               <NavLink href="/Timothy">Timothy</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="/LiewYihChan">Liew Yih Chan</NavLink>
             </NavItem>
           </Nav>
