@@ -38,6 +38,7 @@ export default class TopBar extends React.Component {
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>
+              <NavLink href="/ChanVinSheng">Chan Vin Sheng</NavLink>
               <NavLink href="/Timothy">Timothy</NavLink>
               <NavLink href="/LiewYihChan">Liew Yih Chan</NavLink>
             </NavItem>

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "../pages/landingPage/landingPage";
 import MainPage from "../pages/YC_Liew/PortFolio"
+import VinLandingPage from "../pages/ChanVinSheng/VinLandingPage";
 import Timothy from "../pages/Timothy/timothy";
 
 
@@ -18,6 +19,7 @@ export default class Routes extends React.Component {
           <Route exact path="/" component={LandingPage} />
           <Route path="/Timothy" component={Timothy} />
           <Route exact path="/LiewYihChan" component={MainPage}/>
+         <Route exact path="/ChanVinSheng" component={VinLandingPage} />
         </Switch>
       </BrowserRouter>
     );
