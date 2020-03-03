@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "../pages/landingPage/landingPage";
 import VinLandingPage from "../pages/ChanVinSheng/VinLandingPage";
+import Timothy from "../pages/Timothy/timothy";
 
 export default class Routes extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ export default class Routes extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/ChanVinSheng" component={VinLandingPage} />
+          <Route path="/Timothy" component={Timothy} />
+         <Route exact path="/ChanVinSheng" component={VinLandingPage} />
         </Switch>
       </BrowserRouter>
     );
