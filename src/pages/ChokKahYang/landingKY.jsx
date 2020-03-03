@@ -1,6 +1,7 @@
 import React from "react";
 import EduList from "./eduList"
 import Profile from "./profile.jpg"
+import "./ky.scss"
 
 export default class LandingKY extends React.Component {
     constructor(props) {
