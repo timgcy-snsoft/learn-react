@@ -1,8 +1,8 @@
 import React from "react";
 import BasePage from "../basePage/basePage";
-import DataFetching from "./DataFetching";
+import MatchAPI from "./MatchAPI";
 
-export default class MatchPage extends React.Component {
+export default class LandingDota extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ export default class MatchPage extends React.Component {
     render() {
         return (
             <BasePage title={"Matches"}>
-                <DataFetching />
+                <MatchAPI />
             </BasePage>
         );
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import EduList from "./eduList"
+import EduList from "./EduList"
 import Profile from "./profile.jpg"
 import "./ky.scss"
 
