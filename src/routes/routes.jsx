@@ -4,6 +4,7 @@ import LandingPage from "../pages/landingPage/landingPage";
 import LandingKY from "../pages/ChokKahYang/landingKY";
 import VinLandingPage from "../pages/ChanVinSheng/VinLandingPage";
 import Timothy from "../pages/Timothy/timothy";
+import TeamPlayer from "../pages/Timothy/teamPlayer";
 
 export default class Routes extends React.Component {
   constructor(props) {
@@ -18,7 +19,8 @@ export default class Routes extends React.Component {
           <Route exact path="/" component={LandingPage} />
           <Route path="/Timothy" component={Timothy} />
           <Route exact path="/ChanVinSheng" component={VinLandingPage} />
-          <Route exact path="/kychok/" component={LandingKY}/>
+          <Route exact path="/kychok/" component={LandingKY} />
+          <Route exact path="/team/:id/players" component={TeamPlayer} />
         </Switch>
       </BrowserRouter>
     );

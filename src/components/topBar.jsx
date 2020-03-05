@@ -50,7 +50,7 @@ export default class TopBar extends React.Component {
             </NavItem>
           </Nav>
         </Collapse>
-      </Navbar >
+      </Navbar>
     );
   }
 }
