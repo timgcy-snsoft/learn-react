@@ -1,4 +1,6 @@
 import React from "react";
+import "./HeroApi.scss";
+import HeroFilter from "../DotaAPI/HeroFilter";
 
 export default class HeroApi extends React.Component {
   constructor(props) {
@@ -7,9 +9,7 @@ export default class HeroApi extends React.Component {
       items: [],
       isLoaded: false
     };
-  }
 
-  componentDidMount() {
     fetch("https://api.opendota.com/api/heroStats")
       .then(res => res.json())
       .then(json => {
@@ -25,16 +25,18 @@ export default class HeroApi extends React.Component {
 
   render() {
     const { isLoaded, items } = this.state;
-
     if (!isLoaded) return <div>Loading...</div>;
 
     return (
       <div>
-        <ul>
-          {items.map(item => (
-            <li>Name: {item.localized_name} | </li>
-          ))}
-        </ul>
+        <div className={`hero-container-list`}>
+          <h3>Strength</h3>
+          <HeroFilter heroInfo={items} heroAtt={"str"} />
+          <h3>Agility</h3>
+          <HeroFilter heroInfo={items} heroAtt={"agi"} />
+          <h3>Intelligent</h3>
+          <HeroFilter heroInfo={items} heroAtt={"int"} />
+        </div>
       </div>
     );
   }

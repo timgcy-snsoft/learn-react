@@ -4,6 +4,7 @@ import LandingPage from "../pages/landingPage/landingPage";
 import VinLandingPage from "../pages/ChanVinSheng/VinLandingPage";
 import Timothy from "../pages/Timothy/timothy";
 import DotaAPI from "../pages/DotaAPI/HeroApi";
+import HeroProfile from "../pages/DotaAPI/HeroProfile";
 
 export default class Routes extends React.Component {
   constructor(props) {
@@ -19,6 +20,11 @@ export default class Routes extends React.Component {
           <Route path="/Timothy" component={Timothy} />
           <Route exact path="/ChanVinSheng" component={VinLandingPage} />
           <Route exact path="/DotaAPI" component={DotaAPI} />
+          <Route
+            exact
+            path="/DotaAPI/HeroProfile/:id"
+            component={HeroProfile}
+          />
         </Switch>
       </BrowserRouter>
     );
