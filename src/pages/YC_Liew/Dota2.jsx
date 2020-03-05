@@ -33,7 +33,6 @@ function Dota2() {
 
   return (
     <>
-      <div className="Dota2-Header"><h1>Items</h1></div>
       <div className="Dota2-MainContent">
         {items.map(item => (
           <a className="Dota2-div" key={item.key} href={`/Dota2/${item.text}`}>

@@ -1,0 +1,137 @@
+.hero-container-list {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-container {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 20px;
+}
+
+.hero-list {
+  list-style: none;
+}
+
+.hero-img {
+  width: 80px;
+}
+
+.hero-container-list h3:nth-child(1) {
+  color: red;
+}
+
+.hero-container-list h3:nth-child(3) {
+  color: green;
+}
+
+.hero-container-list h3:nth-child(5) {
+  color: blue;
+}
+
+.tooltip-text {
+  position: absolute;
+  visibility: hidden;
+  width: max-content;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-left: 90px;
+}
+
+.hero-container div:hover .tooltip-text {
+  visibility: visible;
+}
+
+.container-profile {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-profile,
+.hero-details {
+  float: left;
+}
+
+.hero-details p:first-child {
+  margin-top: 50px;
+}
+
+.hero-details p:first-child span {
+  margin-left: 40px;
+}
+
+.hero-details p:nth-child(2) span,
+.hero-details p:nth-child(3) span {
+  margin-right: 50px;
+}
+
+.header-profile::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.colorCart {
+  background-color: red;
+  width: 800px;
+  height: 31px;
+  position: absolute;
+}
+
+.hero-table tr {
+  margin-bottom: 20px;
+}
+
+.hero-table tr td:nth-child(2) {
+  margin-left: 50px;
+}
+
+.hero-table {
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+
+.hero-table tr td div {
+  background-color: green;
+  color: white;
+  padding: 2px;
+  height: 31px;
+  top: 0;
+  position: absolute;
+  left: 0;
+  text-align: center;
+}
+
+.abilities-list {
+  list-style: none;
+  padding: 0;
+}
+
+.abilities-list li {
+  display: inline;
+  padding-right: 20px;
+}
+
+.abilities-list li img {
+  width: 85px;
+}
+
+.abilities-list li img:hover + .tooltip-text-abilties {
+  visibility: visible;
+}
+
+.tooltip-text-abilties {
+  position: absolute;
+  width: max-content;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border: 1px solid white;
+  padding: 20px 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+}

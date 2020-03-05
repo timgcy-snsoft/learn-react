@@ -10,7 +10,7 @@ export default class BasePage extends React.Component {
     const { title, children } = this.props;
 
     return (
-      <div className={`base-page`}>
+      <div className={`base-page content-vin`}>
         <div className={"base-page-header"}>
           {title && <h1 className="page-title">{title}</h1>}
         </div>
