@@ -1,0 +1,52 @@
+.content {
+    padding: 5px;
+    height: 740px;
+    overflow: hidden;
+    background-color: rgb(209, 209, 209);
+}
+
+.picture {
+    height: 720px;
+    width: 500px;
+    float: left;
+}
+
+.header {
+    padding: 5px;
+    border: rgb(94, 90, 90) 1px solid;
+    text-align: center;
+    font-size: 28px;
+    background-color: rgb(92, 88, 88);
+    color: white;
+    margin-bottom: 15px;
+}
+//sdf
+.MainContent{
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    float: left;
+    width: 1200px;
+}
+
+.About{
+    float: left;
+    font-size: 30px;
+    width: 400px;
+    margin-top: 40px;
+    margin-left: 20px;
+    padding: 10px;
+    border: solid 1px black;
+}
+
+.paragrah{
+    float: left;
+    border: black 1px solid;
+    width: 1200px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+}

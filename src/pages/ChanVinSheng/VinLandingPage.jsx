@@ -17,7 +17,7 @@ export default class VinLandingPage extends React.Component {
 
   render() {
     return (
-      <div className={`content`}>
+      <div className={`content-vin`}>
         <VinRightSticky />
         <VinHeaderContent info={this.state} />
         <VinBodyContent info={this.state} />
