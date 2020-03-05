@@ -10,7 +10,9 @@ export default class HeroProfile extends React.Component {
       items: [],
       isLoaded: false
     };
+  }
 
+  componentDidMount() {
     fetch("https://api.opendota.com/api/heroStats")
       .then(res => res.json())
       .then(json => {
