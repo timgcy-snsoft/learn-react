@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import VinImage from "./1808274.jpg"
 
 export default class VinBodyContent extends React.Component {
   constructor(props) {
@@ -37,9 +38,7 @@ export default class VinBodyContent extends React.Component {
           <div className={`about-image`}>
             <a>
               <img
-                src={
-                  "https://web.tarc.edu.my/portal/getStuPhoto.jsp?fkey=1808274"
-                }
+                src={VinImage}
               />
             </a>
           </div>
