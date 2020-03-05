@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import BasePage from '../basePage/basePage'
 import PlayerList from './PlayerList'
+import getApi from "../DotaAPI/FetchFunction"
 
 
 const MatchDetail = (props) => {
     const { id } = props.match.params
     const { heros } = props.location.state
+
+    console.log(props)
 
     const [itemsId, setItemsId] = useState([])
     const [items, setItems] = useState([])
@@ -16,12 +18,12 @@ const MatchDetail = (props) => {
 
     useEffect(() => {
         const fetchDetails = async () => {
-            const matchDetail = await axios.get(`https://api.opendota.com/api/matches/${id}`)
-            const itemId = await axios.get(`https://api.opendota.com/api/constants/item_ids`)
-            const item = await axios.get(`https://api.opendota.com/api/constants/items`)
-            setMatchDetails(matchDetail.data)
-            setItemsId(itemId.data)
-            setItems(item.data)
+            const matchDetail = await getApi(`https://api.opendota.com/api/matches/${id}`)
+            const itemId = await getApi(`https://api.opendota.com/api/constants/item_ids`)
+            const item = await getApi(`https://api.opendota.com/api/constants/items`)
+            setMatchDetails(matchDetail)
+            setItemsId(itemId)
+            setItems(item)
             setLoading(false)
         }
         fetchDetails()

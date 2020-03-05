@@ -30,7 +30,7 @@ function PlayerList({ player, heros, items, itemsId }) {
     const hero = heros.filter(hero => hero.id === hero_id)[0]
 
     return (
-        <div className="flex text-center mb-2">
+        <div className="flex text-center mb-2" id="none">
             <div className="w-25">
                 <Link to={`../HeroProfile/${hero.localized_name}`}>
                     <img src={imgAdd + hero.img} width='60' title={hero.localized_name} />
@@ -39,7 +39,7 @@ function PlayerList({ player, heros, items, itemsId }) {
                 </Link>
             </div>
             <div className="w-50 text-truncate text-left ml-3">
-                {personaname && <a href="#" className={`card-link ${isRadiant ? 'text-success' : 'text-danger'}`}
+                {personaname && <a href="" className={`card-link ${isRadiant ? 'text-success' : 'text-danger'}`}
                 >{personaname}</a>}
                 {!personaname && <span>Anonymous</span>}
             </div>
@@ -51,7 +51,7 @@ function PlayerList({ player, heros, items, itemsId }) {
             <div className="w-75 text-left">
                 {
                     playerItems.map((element, index) => (
-                        element && <Link to={`../../Dota2/${element.text}`}>
+                        element && <Link to={`../../Dota2/${element.text}`} key={index}>
                             <img key={index} src={imgAdd + element.img} width='50' />
                         </Link>)
                     )

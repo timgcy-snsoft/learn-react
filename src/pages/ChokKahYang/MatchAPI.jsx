@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import MatchList from './MatchList'
 import Pagination from './Pagination'
+import getApi from "../DotaAPI/FetchFunction"
 
 function MatchAPI() {
 
@@ -17,12 +17,9 @@ function MatchAPI() {
 
     useEffect(() => {
         const fetchMatchs = async () => {
-            const matches = await axios.get('https://api.opendota.com/api/publicMatches')
-            const heros = await axios.get('https://api.opendota.com/api/heroStats')
-            const cluster = await axios.get('https://api.opendota.com/api/constants/cluster')
-            setMatches(matches.data)
-            setHeros(heros.data)
-            setCluster(cluster.data)
+            setMatches(await getApi('https://api.opendota.com/api/publicMatches'))
+            setHeros(await getApi('https://api.opendota.com/api/heroStats'))
+            setCluster(await getApi('https://api.opendota.com/api/constants/cluster'))
             setLoading(false)
         }
         fetchMatchs()
@@ -38,9 +35,9 @@ function MatchAPI() {
 
     useEffect(() => {
         const fetchRegions = async () => {
-            const region = await axios.get('https://api.opendota.com/api/constants/region')
+            const region = await getApi('https://api.opendota.com/api/constants/region')
             setRegions({
-                ...region.data,
+                ...region,
                 5: "SE Asia", 8: "RUSSIA", 12: "CHINA", 13: "CHINA",
                 17: "CHINA", 18: "CHINA", 20: "CHINA", 25: "CHINA"
             })

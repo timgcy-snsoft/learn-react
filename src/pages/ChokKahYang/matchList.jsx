@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
 function MatchList({ match, heros, clusters, regions }) {
 
     const { match_id, start_time, duration, radiant_win, radiant_team, dire_team, cluster } = match
@@ -50,14 +51,19 @@ function MatchList({ match, heros, clusters, regions }) {
             <div className="m-1 w-50">
                 {radiantTeam.map(radiantHero =>
                     <span key={radiantHero.id}>
-                        <img src={imgAdd + radiantHero.img} width='45' title={radiantHero.localized_name} />
+                        <Link to={`../DotaAPI/HeroProfile/${radiantHero.localized_name}`}>
+                            <img src={imgAdd + radiantHero.img} width='45' title={radiantHero.localized_name} />
+                        </Link>
+
                     </span>
                 )}
             </div>
             <div className="m-1 w-50">
                 {direTeam.map(direHero =>
                     <span key={direHero.id}>
-                        <img src={imgAdd + direHero.img} width='45' title={direHero.localized_name} />
+                        <Link to={`../DotaAPI/HeroProfile/${direHero.localized_name}`}>
+                            <img src={imgAdd + direHero.img} width='45' title={direHero.localized_name} />
+                        </Link>
                     </span>
                 )}</div>
         </div >
