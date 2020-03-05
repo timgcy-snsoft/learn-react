@@ -1,5 +1,7 @@
 import React from "react";
+import BasePage from "../basePage/basePage";
 import "./teamPlayer.scss";
+import { Link } from "react-router-dom";
 
 export default class TeamPlayer extends React.Component {
   /**
@@ -12,7 +14,7 @@ export default class TeamPlayer extends React.Component {
     super(props);
 
     this.state = {
-      id: this.props.match.params.id,
+      teamId: this.props.match.params.id,
       team: [],
       match: false
     };
@@ -24,11 +26,11 @@ export default class TeamPlayer extends React.Component {
    * Fetch json array of objects from given url and update state.
    */
   componentDidMount() {
-    fetch(`https://api.opendota.com/api/teams/${this.state.id}/players`)
+    fetch(`https://api.opendota.com/api/teams/${this.state.teamId}/players`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          id: this.props.match.params.id,
+          teamId: this.props.match.params.id,
           team: data,
           isLoaded: true
         });
@@ -63,43 +65,46 @@ export default class TeamPlayer extends React.Component {
           <ul>
             <div>
               {team.map(player => (
-                <li key={player.account_id}>
-                  <figure className="card card--normal player-profile">
-                    <div className="profile-pic card__image-container">
-                      <img src={imgUrl} alt="" className="card__image" />
-                    </div>
+                <Link to={`/players/${player.account_id}`}>
+                  <li key={player.account_id}>
+                    <figure className="card card--normal player-profile">
+                      <div className="profile-pic card__image-container">
+                        <img src={imgUrl} alt="" className="card__image" />
+                      </div>
 
-                    <figcaption className="card__caption">
-                      <h3 className="teamName card__name">
-                        {player.name ? player.name : "no name"}
-                      </h3>
+                      <figcaption className="card__caption">
+                        <h3 className="teamName card__name">
+                          {player.name ? player.name : "no name"}
+                        </h3>
 
-                      <table className="card__stats">
-                        <tbody>
-                          <tr>
-                            <th>Wins</th>
-                            <td>{player.wins}</td>
-                          </tr>
+                        <table className="card__stats">
+                          <tbody>
+                            <tr>
+                              <th>Wins</th>
+                              <td>{player.wins}</td>
+                            </tr>
 
-                          <tr>
-                            <th>Total Games</th>
-                            <td>{player.games_played}</td>
-                          </tr>
+                            <tr>
+                              <th>Total Games</th>
+                              <td>{player.games_played}</td>
+                            </tr>
 
-                          <tr>
-                            <th>Win Rate</th>
-                            <td>
-                              {winRate(player.wins, player.games_played)} %
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </figcaption>
-                  </figure>
-                </li>
+                            <tr>
+                              <th>Win Rate</th>
+                              <td>
+                                {winRate(player.wins, player.games_played)} %
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </figcaption>
+                    </figure>
+                  </li>
+                </Link>
               ))}
             </div>
           </ul>
+          <a href="https://www.google.com">Redirect to Google</a>
         </div>
       </div>
     );

@@ -5,6 +5,7 @@ import LandingKY from "../pages/ChokKahYang/landingKY";
 import VinLandingPage from "../pages/ChanVinSheng/VinLandingPage";
 import Timothy from "../pages/Timothy/timothy";
 import TeamPlayer from "../pages/Timothy/teamPlayer";
+import DotaPlayer from "../pages/Timothy/dotaPlayer";
 
 export default class Routes extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class Routes extends React.Component {
           <Route exact path="/ChanVinSheng" component={VinLandingPage} />
           <Route exact path="/kychok/" component={LandingKY} />
           <Route exact path="/team/:id/players" component={TeamPlayer} />
+          <Route exact path="/players/:id" component={DotaPlayer} />
         </Switch>
       </BrowserRouter>
     );
