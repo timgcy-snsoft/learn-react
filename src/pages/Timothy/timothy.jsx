@@ -4,7 +4,6 @@
 import React from "react";
 import BasePage from "../basePage/basePage";
 import "./timothy.scss";
-import ProTeam from "./proteams";
 
 export default class Timothy extends React.Component {
   render() {
@@ -77,7 +76,6 @@ export default class Timothy extends React.Component {
             </div>
           </div>
         </div>
-        <ProTeam />
       </BasePage>
     );
   }

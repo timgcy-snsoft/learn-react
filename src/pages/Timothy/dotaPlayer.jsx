@@ -1,6 +1,5 @@
 import React from "react";
 import "./dotaPlayer.scss";
-import BasePage from "../basePage/basePage";
 
 export default class DotaPlayer extends React.Component {
   /**
@@ -53,36 +52,31 @@ export default class DotaPlayer extends React.Component {
 
     return (
       <div className="player">
-        {/* <h3>{user.profile.name}</h3> */}
-        <div className="player-container">
-          <div className="player-avatar">
-            <img src={user.profile.avatarfull} alt="" />
+        <img src={user.profile.avatarfull} alt="" />
+        <h3 className="player-nname">{user.profile.name}</h3>
+        <h5 className="player-name">{user.profile.personaname}</h5>
+        <div className="player-rank">
+          <div>
+            Rank Tier: <span>{user.ranktier ? user.ranktier : "N/A"}</span>
           </div>
-          <div className="player-info">
-            <h3 className="player-nname">{user.profile.name}</h3>
-            <h5 className="player-name">{user.profile.personaname}</h5>
-            <div className="player-rank">
-              <div>{user.ranktier ? user.ranktier : "N/A"}</div>
-              <div className="player-name">
-                {user.solo_competitive_rank
-                  ? user.solo_competitive_rank
-                  : "N/A"}
-              </div>
-              <div className="player-name">
-                <a
-                  href={user.profile.profileurl ? user.profile.profileurl : "#"}
-                >
-                  View Profile
-                </a>
-              </div>
-              <div className="player-name">
-                {user.mmr_estimate.estimate
-                  ? user.mmr_estimate.estimate
-                  : "N/A"}
-              </div>
-            </div>
+          <div>
+            Solo Rank:
+            <span>
+              {user.solo_competitive_rank ? user.solo_competitive_rank : "N/A"}
+            </span>
+          </div>
+          <div>
+            MMR:
+            <span>
+              {user.mmr_estimate.estimate ? user.mmr_estimate.estimate : "N/A"}
+            </span>
           </div>
         </div>
+        <p className="steam">
+          <a href={user.profile.profileurl ? user.profile.profileurl : "#"}>
+            View Steam Profile
+          </a>
+        </p>
       </div>
     );
   }
