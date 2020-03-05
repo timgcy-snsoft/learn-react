@@ -17,8 +17,12 @@ function PlayerList({ player, heros, items, itemsId }) {
 
     playerItems.forEach(
         (element, index, array) => {
-            if (element !== undefined)
-                array[index] = items[element].img
+            if (element !== undefined) {
+                array[index] = {
+                    img: items[element].img,
+                    text: element
+                }
+            }
         }
     );
 
@@ -28,8 +32,11 @@ function PlayerList({ player, heros, items, itemsId }) {
     return (
         <div className="flex text-center mb-2">
             <div className="w-25">
-                <img src={imgAdd + hero.img} width='60' title={hero.localized_name} />
-                <span className="position-absolute small-level">{level}</span>
+                <Link to={`../HeroProfile/${hero.localized_name}`}>
+                    <img src={imgAdd + hero.img} width='60' title={hero.localized_name} />
+
+                    <span className="position-absolute small-level">{level}</span>
+                </Link>
             </div>
             <div className="w-50 text-truncate text-left ml-3">
                 {personaname && <a href="#" className={`card-link ${isRadiant ? 'text-success' : 'text-danger'}`}
@@ -44,7 +51,9 @@ function PlayerList({ player, heros, items, itemsId }) {
             <div className="w-75 text-left">
                 {
                     playerItems.map((element, index) => (
-                        element && <img key={index} src={imgAdd + element} width='50' />)
+                        element && <Link to={`../../Dota2/${element.text}`}>
+                            <img key={index} src={imgAdd + element.img} width='50' />
+                        </Link>)
                     )
                 }
             </div>
