@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import BasePage from '../basePage/basePage'
+import PlayerList from './PlayerList'
 
 
 const MatchDetail = (props) => {
     const { id } = props.match.params
-    const { regions } = props.location.state
+    const { heros } = props.location.state
 
+    const [itemsId, setItemsId] = useState([])
+    const [items, setItems] = useState([])
     const [matchDetails, setMatchDetails] = useState([])
     const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
         const fetchDetails = async () => {
             const matchDetail = await axios.get(`https://api.opendota.com/api/matches/${id}`)
+            const itemId = await axios.get(`https://api.opendota.com/api/constants/item_ids`)
+            const item = await axios.get(`https://api.opendota.com/api/constants/items`)
             setMatchDetails(matchDetail.data)
+            setItemsId(itemId.data)
+            setItems(item.data)
             setLoading(false)
         }
         fetchDetails()
     }, [])
-
-
 
     const { radiant_win, radiant_score, dire_score, duration, players } = matchDetails
 
@@ -27,19 +33,16 @@ const MatchDetail = (props) => {
     const seconds = duration - minutes * 60
     const formattedSeconds = ("0" + seconds).slice(-2)
 
-    if (players !== undefined)
-        console.log(players[1])
-
     if (loading) {
         return <h2>Loading...</h2>
     }
 
     return (
         <BasePage title={`Match ${id}`}>
-            <div>
-                <div className="text-center mt-3">
-                    <div className="font-weight-bold h1"
-                        style={{ color: radiant_win ? 'green' : 'red' }}>
+            <div className="base-page">
+
+                <div className="text-center mt-3 m-2">
+                    <div className={`font-weight-bold h1 ${radiant_win ? 'text-success' : 'text-danger'}`}>
                         {radiant_win ? "Radiant Victory" : "Dire Victory"}
                     </div>
                     <div className="score">
@@ -49,34 +52,43 @@ const MatchDetail = (props) => {
                     </div>
                 </div>
 
-                <div>
-                    THE RADIANT
-                    <div className="flex">
+                <div className="mt-2 mx-5">
+                    <span className="m-4 text-success font-weight-bold">THE RADIANT</span>
+                    <div className="silk flex text-center font-weight-bold m-3">
                         <div className="w-25">Heros</div>
-                        <div className="w-25">Players</div>
+                        <div className="w-50">Players</div>
                         <div className="w-25">Kills</div>
                         <div className="w-25">Deaths</div>
                         <div className="w-25">Assists</div>
-                        <div className="w-25">GPM</div>
-                        <div className="w-25">XPM</div>
-                        <div className="w-75 text-center">Items</div>
+                        <div className="w-25">LH / DN</div>
+                        <div className="w-25">GPM / XPM</div>
+                        <div className="w-75 text-left">Items</div>
                     </div>
-
-
+                    {players.slice(0, 5).map(player =>
+                        (<PlayerList key={player.player_slot} player={player} heros={heros} items={items} itemsId={itemsId} />)
+                    )}
                 </div>
-                <div>
-                    THE DIRE
-                    <div className="flex">
+                <div className="mt-3 mx-5">
+                    <span className="pt-2 m-4 text-danger font-weight-bold">THE DIRE</span>
+                    <div className="silk flex text-center  font-weight-bold m-3">
                         <div className="w-25">Heros</div>
-                        <div className="w-25">Players</div>
+                        <div className="w-50">Players</div>
                         <div className="w-25">Kills</div>
                         <div className="w-25">Deaths</div>
                         <div className="w-25">Assists</div>
-                        <div className="w-25">GPM</div>
-                        <div className="w-25">XPM</div>
-                        <div className="w-75 text-center">Items</div>
+                        <div className="w-25">LH / DN</div>
+                        <div className="w-25">GPM / XPM</div>
+                        <div className="w-75 text-left">Items</div>
                     </div>
+                    {players.slice(5, 10).map(player =>
+                        (<PlayerList key={player.player_slot} player={player} heros={heros} items={items} itemsId={itemsId} />)
+                    )}
                 </div>
+                <span>
+                    <button onClick={props.history.goBack}
+                        className="float-right btn btn-dark">Back</button>
+                </span>
+
             </div>
         </BasePage>
     );

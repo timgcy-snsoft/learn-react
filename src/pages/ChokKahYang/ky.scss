@@ -18,10 +18,19 @@
   padding: 30px;
 }
 
-.profileImg{
-    height:150px;
-    width:120px;
+.profileImg {
+  height: 150px;
+  width: 120px;
 }
-.flex{
-    display:flex;
+.flex {
+  display: flex;
+}
+
+.small-level {
+  line-height: 4;
+  left: 12em;
+  font-size: 14px;
+  color: white;
+  text-align: right;
+  font-weight: 500;
 }

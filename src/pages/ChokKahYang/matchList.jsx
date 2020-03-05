@@ -23,16 +23,22 @@ function MatchList({ match, heros, clusters, regions }) {
 
     return (
         <div className="flex text-center">
-            <div className="m-2 w-25">
-                <Link to={{ pathname: `/dota2/match/${match_id}`, state: { regions: regions[clusters[cluster]] } }}
+            <div className="m-1 w-25">
+                <Link to={{
+                    pathname: `/dota2/match/${match_id}`,
+                    state: {
+                        heros: heros,
+                        regions: regions[clusters[cluster]]
+                    }
+                }}
                     className="text-decoration-none text-success"
                 >
                     {match_id}
                 </Link>
             </div>
-            <div className="m-2 w-25">{dateObj} </div>
-            <div className="m-2 w-25 font-weight-bold">{minutes}:{formattedSeconds}</div>
-            <div className="m-2 w-25 h-25 h5">
+            <div className="m-1 w-25">{dateObj} </div>
+            <div className="m-1 w-25 font-weight-bold">{minutes}:{formattedSeconds}</div>
+            <div className="m-1 w-25 h-25 h5">
                 <div style={{ color: radiant_win ? 'green' : 'red' }}>
                     {radiant_win ? "Radiant" : "Dire"} Victory
                 </div>
@@ -41,14 +47,14 @@ function MatchList({ match, heros, clusters, regions }) {
                 </div>
 
             </div>
-            <div className="m-2 w-50">
+            <div className="m-1 w-50">
                 {radiantTeam.map(radiantHero =>
                     <span key={radiantHero.id}>
                         <img src={imgAdd + radiantHero.img} width='45' title={radiantHero.localized_name} />
                     </span>
                 )}
             </div>
-            <div className="m-2 w-50">
+            <div className="m-1 w-50">
                 {direTeam.map(direHero =>
                     <span key={direHero.id}>
                         <img src={imgAdd + direHero.img} width='45' title={direHero.localized_name} />
