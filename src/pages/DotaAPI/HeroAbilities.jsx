@@ -1,6 +1,8 @@
 import React from "react";
 import "./HeroApi.scss";
 
+import getApi from "../DotaAPI/FetchFunction";
+
 export default class HeroAbilities extends React.Component {
   constructor(props) {
     super(props);
@@ -12,21 +14,31 @@ export default class HeroAbilities extends React.Component {
     };
   }
 
-  componentDidMount() {
-    Promise.all([
-      fetch("https://api.opendota.com/api/constants/hero_abilities"),
-      fetch("https://api.opendota.com/api/constants/abilities")
-    ])
-      .then(([res1, res2]) => {
-        return Promise.all([res1.json(), res2.json()]);
-      })
-      .then(([res1, res2]) => {
-        this.setState({
-          items: res1,
-          abilities: res2,
-          isLoaded: true
-        });
-      });
+  async componentDidMount() {
+    // Promise.all([
+    //   fetch("https://api.opendota.com/api/constants/hero_abilities"),
+    //   fetch("https://api.opendota.com/api/constants/abilities")
+    // ])
+    //   .then(([res1, res2]) => {
+    //     return Promise.all([res1.json(), res2.json()]);
+    //   })
+    //   .then(([res1, res2]) => {
+    //     this.setState({
+    //       items: res1,
+    //       abilities: res2,
+    //       isLoaded: true
+    //     });
+    //   });
+
+    this.setState({
+      items: await getApi(
+        "https://api.opendota.com/api/constants/hero_abilities"
+      ),
+      abilities: await getApi(
+        "https://api.opendota.com/api/constants/abilities"
+      ),
+      isLoaded: true
+    });
   }
 
   render() {

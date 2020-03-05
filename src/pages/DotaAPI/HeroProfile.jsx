@@ -5,6 +5,7 @@ import HeroAbilities from "../DotaAPI/HeroAbilities";
 export default class HeroProfile extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       id: this.props.match.params.id,
       items: [],
