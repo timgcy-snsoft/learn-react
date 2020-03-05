@@ -25,7 +25,7 @@ function MatchList({ match, heros, clusters, regions }) {
         <div className="flex text-center">
             <div className="m-1 w-25">
                 <Link to={{
-                    pathname: `/dota2/match/${match_id}`,
+                    pathname: `/DotaAPI/match/${match_id}`,
                     state: {
                         heros: heros,
                         regions: regions[clusters[cluster]]

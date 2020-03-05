@@ -1,0 +1,143 @@
+.Dota2-item{
+    width: 100px;
+    height: 25px;
+    color: white;
+}
+
+.Dota2-div{
+    margin: 0px;
+    float: none;
+    display: inline-block;
+    width:70px;
+    height: 64px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.Dota2-img{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    margin: 0;
+}
+
+.Dota2-img:hover{
+    width: 110px;
+    height: 110px;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+.Dota2-text{
+    background-color: blue;
+    color: white;
+    position: absolute;
+    width: 110px;
+    z-index: 200;
+    display: none;
+}
+
+.Dota2-img:hover + .Dota2-text{
+    display: inline-block;
+}
+
+.Dota2-MainContent{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.Dota2-Header{
+    padding: 10px;
+    padding-left: 30px;
+    color: white;
+    background-color: rgb(0, 0, 82);
+}
+
+.Details-Main{
+    background-color: rgb(0, 0, 82);
+    height: 863px;
+    // width: 1900px;
+    min-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.Details-div{
+}
+
+.Details-img{
+    margin-top: 20px;
+    padding: 20px;
+    height: 250px;
+    width: 250px;
+}
+
+.Details-div-img{
+}
+
+.Details-content{
+    margin-top: 10px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: rgb(96, 96, 247);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Details-content-cost{
+
+}
+
+.Details-table{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.Details-table td{
+    border: blue solid 2px;
+}
+
+.Details-table-td1{
+    width: 120px;
+    font-weight: bold;
+    padding: 3px;
+    font-size: 18px;
+}
+
+.Details-table-name{
+    color: white;
+    font-size: 18px;
+}
+
+.Details-table-cost{
+    color: yellow;
+    font-size: 18px;
+}
+
+.Details-table-desc{
+    color: yellowgreen;
+    font-size: 18px;
+}
+
+.Details-table-desc2{
+    padding-left: 7%;
+    padding-right: 7%;
+    color: yellowgreen;
+}
+
+.Details-table-cd-false{
+    color: red;
+    font-size: 18px;
+}
+
+.Details-table-cd-true{
+    color: rgb(40, 236, 40);
+    font-size: 18px;
+}

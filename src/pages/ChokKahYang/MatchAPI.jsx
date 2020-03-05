@@ -53,7 +53,7 @@ function MatchAPI() {
     }
 
     return (
-        <div className="m-3">
+        <div className="m-3 clearfix">
             <div className="flex font-weight-bold text-light text-center">
                 <div className="m-2 w-25">Match ID</div>
                 <div className="m-2 w-25">Start Time</div>

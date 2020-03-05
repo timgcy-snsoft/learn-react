@@ -28,7 +28,6 @@ const MatchDetail = (props) => {
     }, [])
 
     const { radiant_win, radiant_score, dire_score, duration, players } = matchDetails
-
     const minutes = Math.floor(duration / 60)
     const seconds = duration - minutes * 60
     const formattedSeconds = ("0" + seconds).slice(-2)
@@ -40,7 +39,10 @@ const MatchDetail = (props) => {
     return (
         <BasePage title={`Match ${id}`}>
             <div className="base-page">
-
+                <span>
+                    <button onClick={props.history.goBack}
+                        className="float-right btn btn-dark">Back</button>
+                </span>
                 <div className="text-center mt-3 m-2">
                     <div className={`font-weight-bold h1 ${radiant_win ? 'text-success' : 'text-danger'}`}>
                         {radiant_win ? "Radiant Victory" : "Dire Victory"}
@@ -84,10 +86,7 @@ const MatchDetail = (props) => {
                         (<PlayerList key={player.player_slot} player={player} heros={heros} items={items} itemsId={itemsId} />)
                     )}
                 </div>
-                <span>
-                    <button onClick={props.history.goBack}
-                        className="float-right btn btn-dark">Back</button>
-                </span>
+
 
             </div>
         </BasePage>

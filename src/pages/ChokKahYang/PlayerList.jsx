@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 function PlayerList({ player, heros, items, itemsId }) {
 
-
-
     const { hero_id, level, personaname, isRadiant } = player
     const { kills, deaths, assists, last_hits, denies, gold_per_min, xp_per_min } = player
     const { item_0, item_1, item_2, item_3, item_4, item_5 } = player
