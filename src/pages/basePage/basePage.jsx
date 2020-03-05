@@ -13,7 +13,6 @@ export default class BasePage extends React.Component {
       <div className={`base-page`}>
         <div className={"base-page-header"}>
           {title && <h1 className="page-title">{title}</h1>}
-          <h1>Test</h1>
         </div>
         {children}
       </div>
