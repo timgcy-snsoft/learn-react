@@ -49,7 +49,10 @@ export default class TopBar extends React.Component {
               <NavLink href="/Timothy">Timothy</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/DotaAPI">Dota</NavLink>
+              <NavLink href="/LiewYihChan">Liew Yih Chan</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/DotaAPI">Dota2</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
