@@ -1,4 +1,5 @@
 import React from "react";
+import HeroApi from "../DotaAPI/HeroApi";
 
 export default class DotaApi extends React.Component {
   constructor(props) {
@@ -6,6 +7,10 @@ export default class DotaApi extends React.Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <HeroApi />
+      </div>
+    );
   }
 }
