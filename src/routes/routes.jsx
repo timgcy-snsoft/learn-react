@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "../pages/landingPage/landingPage";
+import LandingKY from "../pages/ChokKahYang/landingKY";
 import VinLandingPage from "../pages/ChanVinSheng/VinLandingPage";
 import Timothy from "../pages/Timothy/timothy";
 import DotaLandingPage from "../pages/DotaAPI/DotaLandingPage";
@@ -25,6 +26,7 @@ export default class Routes extends React.Component {
             path="/DotaAPI/HeroProfile/:id"
             component={HeroProfile}
           />
+           <Route exact path="/kychok/" component={LandingKY}/>
         </Switch>
       </BrowserRouter>
     );
