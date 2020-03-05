@@ -104,7 +104,6 @@ export default class TeamPlayer extends React.Component {
               ))}
             </div>
           </ul>
-          <a href="https://www.google.com">Redirect to Google</a>
         </div>
       </div>
     );
