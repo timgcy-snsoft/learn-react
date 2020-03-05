@@ -53,10 +53,34 @@ export default class DotaPlayer extends React.Component {
 
     return (
       <div className="player">
-        <h3>{user.profile.personaname}</h3>
+        {/* <h3>{user.profile.name}</h3> */}
         <div className="player-container">
           <div className="player-avatar">
             <img src={user.profile.avatarfull} alt="" />
+          </div>
+          <div className="player-info">
+            <h3 className="player-nname">{user.profile.name}</h3>
+            <h5 className="player-name">{user.profile.personaname}</h5>
+            <div className="player-rank">
+              <div>{user.ranktier ? user.ranktier : "N/A"}</div>
+              <div className="player-name">
+                {user.solo_competitive_rank
+                  ? user.solo_competitive_rank
+                  : "N/A"}
+              </div>
+              <div className="player-name">
+                <a
+                  href={user.profile.profileurl ? user.profile.profileurl : "#"}
+                >
+                  View Profile
+                </a>
+              </div>
+              <div className="player-name">
+                {user.mmr_estimate.estimate
+                  ? user.mmr_estimate.estimate
+                  : "N/A"}
+              </div>
+            </div>
           </div>
         </div>
       </div>
