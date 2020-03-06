@@ -3,6 +3,7 @@ import HeroApi from "../DotaAPI/HeroApi";
 import ItemApi from "../YC_Liew/Dota2";
 import MatchAPI from "../ChokKahYang/MatchAPI";
 import BasePage from "../basePage/basePage";
+import DotaTeam from "../Timothy/proteams";
 export default class DotaApi extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,9 @@ export default class DotaApi extends React.Component {
         </BasePage>
         <BasePage title="Items (Liew Yih Chan)">
           <ItemApi />
+        </BasePage>
+        <BasePage title="Teams (Tim)">
+          <DotaTeam />
         </BasePage>
       </BasePage>
     );
