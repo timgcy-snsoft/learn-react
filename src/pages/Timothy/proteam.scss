@@ -1,0 +1,111 @@
+// @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+.slideshow {
+  height: 100%;
+  width: 68%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slideshow-container {
+  background-color: #0a193e;
+  position: relative;
+  display: flex;
+  height: 300px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow-slide {
+  display: block;
+  width: 1200px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.teamProfile {
+  float: left;
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.slideshow-img {
+  margin-top: 12px;
+}
+
+.slideshow-img img {
+  width: 200px;
+  height: 200px;
+}
+
+.slideshow-container ul {
+  list-style-type: none;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.slideshow-box li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  float: left;
+}
+
+.slideshow-img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  transform: scale(0.7);
+}
+
+.teamDetail {
+  display: inline;
+  font-size: 1rem;
+  position: relative;
+  color: #fff;
+}
+
+.teamName {
+  display: inline-block;
+  font-weight: 300;
+  z-index: 500;
+  color: #fff;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin: 0 auto;
+}
+
+.result {
+  color: #fff;
+  width: 40%;
+  padding: 0;
+  margin: auto auto;
+}
+
+.result.win {
+  background-color: #00ff00;
+}
+
+.result.lose {
+  background-color: #ff0000;
+}
+
+.result.win,
+.result.lose {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: inline-block;
+}

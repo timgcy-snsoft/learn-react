@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700");
+
+.team {
+  margin: 0;
+  padding: 20px;
+  height: 100%;
+  background-color: #0a192f;
+}
+
+.team-container {
+  padding: 20px;
+  width: 100%;
+  background-color: #0a192f;
+}
+
+.team-container ul {
+  list-style-type: none;
+}
+
+.player-profile {
+  display: block;
+  position: relative;
+  float: left;
+}
+
+.player-profile img {
+  max-height: 150px;
+  margin: auto;
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.card {
+  display: inline-block;
+  width: 300px;
+  padding: 1em;
+  border-radius: 15px;
+  margin: 20px;
+  background: #ddd;
+  text-align: left;
+  position: relative;
+  transition: 0.4s;
+  box-shadow: 0px 5px 20px -10px #111111;
+}
+
+.card__caption {
+  background-color: rgba(#ffffff, 0.65);
+  padding: 1em;
+  position: relative;
+  border-radius: 0 0 3px 3px;
+}
+.card__image-container {
+  background-color: rgba(#000000, 0.7);
+  text-align: center;
+  padding: 1em 1em 0;
+  border-radius: 3px 3px 0 0;
+}
+
+.card__type {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  transform: translateY(-50%);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  padding: 0.25em;
+  line-height: 1;
+  border-radius: 2px;
+  background: #bbbbbb;
+}
+
+.card__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.card__name {
+  font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #111111;
+}
+
+.card__stats {
+  margin: 1em 0;
+  color: #111111;
+  font-size: 20px;
+  th {
+    font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+    text-align: right;
+    font-weight: 300;
+  }
+  width: 100%;
+
+  th,
+  td {
+    width: 50%;
+    padding: 0.25em 0.5em 0;
+  }
+}
+
+.card__abilities {
+  display: flex;
+  justify-content: space-between;
+}
+.card__ability {
+  margin-top: 1em;
+  flex: 1 0;
+}
+
+.card--normal {
+  background: linear-gradient(110deg, #fdbb2d 0%, #3a1c71 100%);
+  box-shadow: 0px 5px 20px -10px #3a1c71;
+  .card__type {
+    background-color: #c08a53;
+  }
+}
+
+@for $i from 1 through 9 {
+  .card:nth-child(#{$i}) {
+    $rotation: (5 - random(10)) + deg;
+    transform: translateY(0px) rotate($rotation);
+  }
+}
+
+.card:hover {
+  z-index: 5;
+  box-shadow: 0px 13px 30px -15px #000000;
+  transform: translateY(-10px);
+}
