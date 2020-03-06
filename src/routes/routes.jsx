@@ -32,14 +32,9 @@ export default class Routes extends React.Component {
           <Route exact path="/players/:id" component={DotaPlayer} />
           <Route exact path="/Dota2" component={Dota2} />
           <Route path="/Dota2/:id" component={itemDetails} />
-          <Route exact path="/kychok/" component={LandingKY} />
           <Route exact path="/DotaAPI" component={DotaLandingPage} />
-          <Route
-            exact
-            path="/DotaAPI/HeroProfile/:id"
-            component={HeroProfile}
-          />
-          <Route exact path="/DotaAPI/:id" component={itemDetails} />
+          <Route exact path="/DotaAPI/HeroProfile/:id" component={HeroProfile} />
+          <Route exact path="/Dota2/:id" component={itemDetails} />
           <Route exact path="/DotaAPI/match/:id" component={MatchDetail} />
         </Switch>
       </BrowserRouter>
