@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeroApi.scss";
 import HeroFilter from "../DotaAPI/HeroFilter";
-import getApi from "../DotaAPI/FetchFunction";
+import callApi from "../DotaAPI/FetchFunction";
 
 export default class HeroApi extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class HeroApi extends React.Component {
     //   });
 
     this.setState({
-      items: await getApi("https://api.opendota.com/api/heroStats"),
+      items: await callApi("/heroStats"),
       isLoaded: true
     });
   }

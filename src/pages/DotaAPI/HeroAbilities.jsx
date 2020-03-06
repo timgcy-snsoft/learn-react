@@ -1,7 +1,6 @@
 import React from "react";
 import "./HeroApi.scss";
-
-import getApi from "../DotaAPI/FetchFunction";
+import callApi from "../DotaAPI/FetchFunction";
 
 export default class HeroAbilities extends React.Component {
   constructor(props) {
@@ -31,12 +30,8 @@ export default class HeroAbilities extends React.Component {
     //   });
 
     this.setState({
-      items: await getApi(
-        "https://api.opendota.com/api/constants/hero_abilities"
-      ),
-      abilities: await getApi(
-        "https://api.opendota.com/api/constants/abilities"
-      ),
+      items: await callApi("/constants/hero_abilities"),
+      abilities: await callApi("/constants/abilities"),
       isLoaded: true
     });
   }
