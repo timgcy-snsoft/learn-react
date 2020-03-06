@@ -131,6 +131,8 @@ export default class HeroProfile extends React.Component {
                   </tr>
                 </tbody>
               </table>
+              <button onClick={this.props.history.goBack}
+                className="btn btn-dark">Back</button>
             </div>
           </div>
         </div>
