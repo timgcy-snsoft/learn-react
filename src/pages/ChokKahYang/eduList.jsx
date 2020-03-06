@@ -1,6 +1,4 @@
 import React from "react";
-import "./base.scss"
-
 
 export default class EduList extends React.Component {
     constructor(props) {
@@ -12,7 +10,7 @@ export default class EduList extends React.Component {
         const { school, qualified, yearStart, yearEnd } = this.props.qualification
 
         return (
-            <div className="containerEdu">
+            <div className="container-edu">
                 <h3 className="font-weight-bold">{school}</h3>
                 <div className="text-white-70 h4">{qualified}</div>
                 <div className="text-white-50 h6">{yearStart} - {yearEnd}</div>

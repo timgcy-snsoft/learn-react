@@ -43,7 +43,7 @@ export default class TopBar extends React.Component {
               <NavLink href="/ChanVinSheng">Chan Vin Sheng</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/kychok/">KY Chok</NavLink>
+              <NavLink href="/kychok">KY Chok</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/Timothy">Timothy</NavLink>
@@ -52,11 +52,11 @@ export default class TopBar extends React.Component {
               <NavLink href="/LiewYihChan">Liew Yih Chan</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Dota2">Dota2</NavLink>
+              <NavLink href="/DotaAPI">Dota2</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
-      </Navbar >
+      </Navbar>
     );
   }
 }

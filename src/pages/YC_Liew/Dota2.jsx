@@ -20,7 +20,6 @@ function Dota2() {
       filter = `${object[property].id}`;
       if (filter != 271 && filter != 1021 && filter != 1022 && filter != 1023 && filter != 1024 && filter != 1025 && filter != 1026 && filter != 1027 && filter != 1028 && filter != 1030 && filter != 1032 && filter != 295 && filter != 312 && filter != 373 && !property.includes("recipe")) 
       {
-        console.log(property)
         setItems((preItems) => {
           return [
             ...preItems,
@@ -33,7 +32,6 @@ function Dota2() {
 
   return (
     <>
-      <div className="Dota2-Header"><h1>Items</h1></div>
       <div className="Dota2-MainContent">
         {items.map(item => (
           <a className="Dota2-div" key={item.key} href={`/Dota2/${item.text}`}>
