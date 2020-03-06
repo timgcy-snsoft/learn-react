@@ -35,10 +35,6 @@ export default class VinLandingPage extends React.Component {
     this.setState({ age: this.myRefAge.current.value });
     this.setState({ occupation: this.myRefOccupation.current.value });
     this.setState({ add: this.myRefAdd.current.value });
-    this.myRefName.current = "";
-    this.myRefAge = "";
-    this.myRefOccupation = "";
-    this.myRefAdd = "";
   }
 
   render() {
