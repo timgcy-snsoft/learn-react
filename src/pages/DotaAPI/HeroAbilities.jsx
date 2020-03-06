@@ -39,7 +39,7 @@ export default class HeroAbilities extends React.Component {
   render() {
     const { isLoaded, heroName, items, abilities } = this.state;
     let heroAbilities = [];
-    let getHeroAbilities = [];
+    let getHeroAbilities;
     if (isLoaded) {
       for (const properties in items[heroName]["abilities"]) {
         heroAbilities.push(items[heroName]["abilities"][properties]);
@@ -49,9 +49,7 @@ export default class HeroAbilities extends React.Component {
         nullAbilities => nullAbilities !== "generic_hidden"
       );
 
-      filterAbilities.forEach(element =>
-        getHeroAbilities.push(abilities[element])
-      );
+      getHeroAbilities = filterAbilities.map(element => abilities[element]);
 
       console.log(getHeroAbilities);
     }
