@@ -30,7 +30,6 @@ export default class TeamPlayer extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          teamId: this.props.match.params.id,
           team: data,
           isLoaded: true
         });
@@ -73,7 +72,7 @@ export default class TeamPlayer extends React.Component {
                       </div>
 
                       <figcaption className="card__caption">
-                        <h3 className="teamName card__name">
+                        <h3 className="card__name">
                           {player.name ? player.name : "no name"}
                         </h3>
 
