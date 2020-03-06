@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import BasePage from '../basePage/basePage'
 import PlayerList from './PlayerList'
-import getApi from "../DotaAPI/FetchFunction"
+import callApi from "../DotaAPI/FetchFunction"
 
 
 const MatchDetail = (props) => {
@@ -18,9 +18,9 @@ const MatchDetail = (props) => {
 
     useEffect(() => {
         const fetchDetails = async () => {
-            const matchDetail = await getApi(`https://api.opendota.com/api/matches/${id}`)
-            const itemId = await getApi(`https://api.opendota.com/api/constants/item_ids`)
-            const item = await getApi(`https://api.opendota.com/api/constants/items`)
+            const matchDetail = await callApi(`/matches/${id}`)
+            const itemId = await callApi(`/constants/item_ids`)
+            const item = await callApi(`/constants/items`)
             setMatchDetails(matchDetail)
             setItemsId(itemId)
             setItems(item)

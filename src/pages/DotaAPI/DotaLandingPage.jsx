@@ -11,16 +11,12 @@ export default class DotaApi extends React.Component {
   render() {
     return (
       <BasePage title="Dota 2">
-        <BasePage title="Match (KY Chok)">
-          <MatchAPI />
-        </BasePage>
-        <BasePage title="Heroes (Chan Vin Sheng)">
-          <HeroApi />
-        </BasePage>
-        <BasePage title="Items (Liew Yih Chan)">
-          <ItemApi />
-        </BasePage>
-
+        <h2 className="ml-5 mt-2 text-white font-weight-bold"> Match (KY Chok)</h2>
+        <MatchAPI />
+        <h2 className="ml-5 mt-2 text-white font-weight-bold"> Heroes (Chan Vin Sheng)</h2>
+        <HeroApi />
+        <h2 className="ml-5 mt-2 text-white font-weight-bold">Items (Liew Yih Chan)</h2>
+        <ItemApi />
       </BasePage>
     );
   }
