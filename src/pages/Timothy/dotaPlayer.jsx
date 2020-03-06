@@ -28,7 +28,6 @@ export default class DotaPlayer extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          pid: this.props.match.params.id,
           player: data,
           isLoaded: true
         });
