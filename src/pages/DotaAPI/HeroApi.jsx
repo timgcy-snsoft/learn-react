@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeroApi.scss";
 import HeroFilter from "../DotaAPI/HeroFilter";
+import callApi from "../DotaAPI/FetchFunction";
 
 export default class HeroApi extends React.Component {
   constructor(props) {
@@ -9,18 +10,25 @@ export default class HeroApi extends React.Component {
       items: [],
       isLoaded: false
     };
+  }
 
-    fetch("https://api.opendota.com/api/heroStats")
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          items: json,
-          isLoaded: true
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  async componentDidMount() {
+    // fetch("https://api.opendota.com/api/heroStats")
+    //   .then(res => res.json())
+    //   .then(json => {
+    //     this.setState({
+    //       items: json,
+    //       isLoaded: true
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+
+    this.setState({
+      items: await callApi("/heroStats"),
+      isLoaded: true
+    });
   }
 
   render() {
