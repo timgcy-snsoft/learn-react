@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+export default class Navbar extends Component {
+
+    render() {
+        return (
+            <nav className="navbar navbar-dark navbar-expand-lg">
+                <Link to="/users" className="navbar-brand">User List</Link>
+                <div className="collpase navbar-collapse">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="navbar-item btn btn-dark font-weight-bold">
+                            <Link to="/users/create" className="nav-link">New User</Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        );
+    }
+}
