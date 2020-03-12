@@ -7,7 +7,14 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        minlength: 2
+        minlength: 2,
+        trim: true
+    },
+    psw: {
+        type: String,
+        required: true,
+        minlength: 6,
+        trim: true
     },
     age: {
         type: Number,

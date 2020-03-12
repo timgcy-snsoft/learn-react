@@ -9,23 +9,25 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const name = req.body.name
+    const psw = req.body.psw
     const age = Number(req.body.age)
     const position = req.body.position
     const newUser = new User({
         name,
+        psw,
         age,
         position
     })
+    let err = ''
+
+    if (name.length < 2)
+        err += `Name must be at least 2 characters.\n`
+    if (psw.length < 6)
+        err += `Password must be at least 6 characters\n`
 
     newUser.save()
         .then(() => res.json('User added!'))
-        .catch(err => res.status(400).json('Error: ' + err))
-})
-
-router.route('/:id').get((req, res) => {
-    User.findById(req.params.id)
-        .then(user => res.json(user))
-        .catch(err => res.status(400).json('Error: ' + err))
+        .catch(() => res.status(400).json(`${err}`))
 })
 
 router.route('/:id').delete((req, res) => {
@@ -38,15 +40,29 @@ router.route('/edit/:id').post((req, res) => {
     User.findById(req.params.id)
         .then(user => {
             user.name = req.body.name
+            user.psw = req.body.psw
             user.age = Number(req.body.age)
             user.position = req.body.position
 
+            if (user.name.length < 2)
+                err += `Name must be at least 2 characters.\n`
+            if (user.psw.length < 6)
+                err += `Password must be at least 6 characters\n`
+
             user.save()
                 .then(() => res.json('User updated!'))
-                .catch(err => res.status(400).json('Error: ' + err))
+                .catch(() => res.status(400).json(`${err}`))
         })
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/login').post((req, res) => {
+    const name = req.body.name
+    const psw = req.body.psw
+
+    User.findOne({ name, psw })
+        .then(user => res.json(user))
+        .catch(err => res.status(400).json('Error: ' + err))
+})
 
 module.exports = router

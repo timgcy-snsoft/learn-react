@@ -4,7 +4,7 @@
   "author": "SNSKL",
   "scripts": {
     "dev": "webpack-dev-server --env local --port 8080 --hot --mode development --config webpack.dev.config.js",
-    "server": "cd src/pages/chokkahyang/backend nodemon server.js"
+    "serverA": "nodemon src/pages/chokkahyang/backend/serviceA/serverTopic.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
@@ -13,12 +13,17 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-http-proxy": "^1.6.0",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.3",
+    "nodemon": "^2.0.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hook-form": "^4.10.1",
     "react-router-dom": "^5.1.2",
-    "reactstrap": "^8.4.1"
+    "reactstrap": "^8.4.1",
+    "request-promise-native": "^1.0.8",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
