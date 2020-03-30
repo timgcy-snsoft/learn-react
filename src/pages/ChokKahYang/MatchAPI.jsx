@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import MatchList from './MatchList'
 import Pagination from './Pagination'
-import getApi from "../DotaAPI/FetchFunction"
+import callApi from "../DotaAPI/FetchFunction"
 
 function MatchAPI() {
 
@@ -17,9 +17,9 @@ function MatchAPI() {
 
     useEffect(() => {
         const fetchMatchs = async () => {
-            setMatches(await getApi('https://api.opendota.com/api/publicMatches'))
-            setHeros(await getApi('https://api.opendota.com/api/heroStats'))
-            setCluster(await getApi('https://api.opendota.com/api/constants/cluster'))
+            setMatches(await callApi('/publicMatches'))
+            setHeros(await callApi('/heroStats'))
+            setCluster(await callApi('/constants/cluster'))
             setLoading(false)
         }
         fetchMatchs()

@@ -12,6 +12,7 @@ import itemDetails from "../pages/YC_Liew/ItemDetials";
 import DotaLandingPage from "../pages/DotaAPI/DotaLandingPage";
 import HeroProfile from "../pages/DotaAPI/HeroProfile";
 import MatchDetail from "../pages/ChokKahYang/MatchDetail";
+import BackendKY from "../pages/ChokKahYang/backend/backendKY"
 
 export default class Routes extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export default class Routes extends React.Component {
           <Route exact path="/DotaAPI/HeroProfile/:id" component={HeroProfile} />
           <Route exact path="/Dota2/:id" component={itemDetails} />
           <Route exact path="/DotaAPI/match/:id" component={MatchDetail} />
+          <Route path="/users" component={BackendKY} />
         </Switch>
       </BrowserRouter>
     );

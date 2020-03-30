@@ -1,3 +1,4 @@
+
 const API_HOST = `https://api.opendota.com/api`;
 
 const callApi = async endpoint => {
@@ -7,3 +8,4 @@ const callApi = async endpoint => {
 };
 
 export default callApi;
+
