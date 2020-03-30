@@ -7,12 +7,12 @@ export default class HeroApi extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
-      isLoaded: false
+      items: this.props.items,
+      isLoaded: true
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     // fetch("https://api.opendota.com/api/heroStats")
     //   .then(res => res.json())
     //   .then(json => {
@@ -24,11 +24,10 @@ export default class HeroApi extends React.Component {
     //   .catch(err => {
     //     console.log(err);
     //   });
-
-    this.setState({
-      items: await callApi("/heroStats"),
-      isLoaded: true
-    });
+    // this.setState({
+    //   items: await callApi("/heroStats"),
+    //   isLoaded: true
+    // });
   }
 
   render() {
