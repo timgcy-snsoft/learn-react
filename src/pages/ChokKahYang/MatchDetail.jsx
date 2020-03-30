@@ -6,12 +6,8 @@ import callApi from "../DotaAPI/FetchFunction"
 
 const MatchDetail = (props) => {
     const { id } = props.match.params
-    const { heros } = props.location.state
+    const { heros, itemsID, items } = props.location.state
 
-    console.log(props)
-
-    const [itemsId, setItemsId] = useState([])
-    const [items, setItems] = useState([])
     const [matchDetails, setMatchDetails] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -19,11 +15,7 @@ const MatchDetail = (props) => {
     useEffect(() => {
         const fetchDetails = async () => {
             const matchDetail = await callApi(`/matches/${id}`)
-            const itemId = await callApi(`/constants/item_ids`)
-            const item = await callApi(`/constants/items`)
             setMatchDetails(matchDetail)
-            setItemsId(itemId)
-            setItems(item)
             setLoading(false)
         }
         fetchDetails()
@@ -69,7 +61,7 @@ const MatchDetail = (props) => {
                         <div className="w-75 text-left">Items</div>
                     </div>
                     {players.slice(0, 5).map(player =>
-                        (<PlayerList key={player.player_slot} player={player} heros={heros} items={items} itemsId={itemsId} />)
+                        (<PlayerList key={player.player_slot} player={player} heros={heros} items={items} itemsID={itemsID} />)
                     )}
                 </div>
                 <div className="mt-3 mx-5">
@@ -85,7 +77,7 @@ const MatchDetail = (props) => {
                         <div className="w-75 text-left">Items</div>
                     </div>
                     {players.slice(5, 10).map(player =>
-                        (<PlayerList key={player.player_slot} player={player} heros={heros} items={items} itemsId={itemsId} />)
+                        (<PlayerList key={player.player_slot} player={player} heros={heros} items={items} itemsID={itemsID} />)
                     )}
                 </div>
 

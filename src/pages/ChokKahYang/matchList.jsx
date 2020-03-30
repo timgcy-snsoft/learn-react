@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-function MatchList({ match, heros, clusters, regions }) {
+function MatchList({ match, heros, clusters, regions, itemsID, items }) {
 
     const { match_id, start_time, duration, radiant_win, radiant_team, dire_team, cluster } = match
     const imgAdd = "http://cdn.dota2.com/"
@@ -28,8 +28,9 @@ function MatchList({ match, heros, clusters, regions }) {
                 <Link to={{
                     pathname: `/DotaAPI/match/${match_id}`,
                     state: {
-                        heros: heros,
-                        regions: regions[clusters[cluster]]
+                        heros,
+                        itemsID,
+                        items
                     }
                 }}
                     className="text-decoration-none text-success"
