@@ -1,27 +1,24 @@
 import React from "react";
 import "./HeroApi.scss";
 import HeroAbilities from "../DotaAPI/HeroAbilities";
+import callApi from "../DotaAPI/FetchFunction";
 
 export default class HeroProfile extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       id: this.props.match.params.id,
       items: [],
       isLoaded: false
     };
+  }
 
-    fetch("https://api.opendota.com/api/heroStats")
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          items: json,
-          isLoaded: true
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  async componentDidMount() {
+    this.setState({
+      items: await callApi("/heroStats"),
+      isLoaded: true
+    });
   }
 
   winRate(win, total) {

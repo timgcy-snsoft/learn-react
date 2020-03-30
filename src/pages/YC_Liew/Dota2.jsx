@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import "./Dota2.scss"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Dota2.scss";
+import getApi from "../DotaAPI/FetchFunction";
 
 function Dota2() {
-
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -11,10 +11,7 @@ function Dota2() {
   }, []);
 
   const fetchItems = async () => {
-    const data = await fetch(
-      'https://api.opendota.com/api/constants/items'
-    );
-    const object = await data.json();
+    const object = await getApi("https://api.opendota.com/api/constants/items");
     for (const property in object) {
       let filter;
       filter = `${object[property].id}`;
@@ -23,19 +20,28 @@ function Dota2() {
         setItems((preItems) => {
           return [
             ...preItems,
-            { text: `${property}`, key: `${object[property].id}`, img: "http://cdn.dota2.com/" + `${object[property].img}`}
-          ]
+            {
+              text: `${property}`,
+              key: `${object[property].id}`,
+              img: "http://cdn.dota2.com/" + `${object[property].img}`
+            }
+          ];
         });
       }
     }
-  }
+  };
 
   return (
     <>
       <div className="Dota2-MainContent">
         {items.map(item => (
           <a className="Dota2-div" key={item.key} href={`/Dota2/${item.text}`}>
-            <img className="Dota2-img" src={item.img} alt={item.key} title={item.text}></img>
+            <img
+              className="Dota2-img"
+              src={item.img}
+              alt={item.key}
+              title={item.text}
+            ></img>
           </a>
         ))}
       </div>
