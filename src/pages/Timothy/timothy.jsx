@@ -1,46 +1,53 @@
-import React from "react";
-import BasePage from "../basePage/basePage";
-import "./timothy.scss";
-
-// const inputParsers = {
-//   uppercase(input) {
-//     return input.toUpperCase();
-//   },
-//   number(input) {
-//     return parseInt(input);
-//   }
-// };
+import React from 'react'
+import BasePage from '../basePage/basePage'
+import './timothy.scss'
 
 function stringifyFormData(fd) {
-  const data = {};
+  const data = {}
   for (let key of fd.keys()) {
-    data[key] = fd.get(key);
+    data[key] = fd.get(key)
   }
-  return JSON.stringify(data, null, 2);
+  return JSON.stringify(data, null, 2)
 }
+
+function displayResult(data, field) {
+  const toRender = JSON.parse(data)
+  console.log(toRender[field])
+  return toRender[field]
+}
+
 export default class Timothy extends React.Component {
   constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {};
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = {
+      name: '',
+      age: 0,
+      place: '',
+      occupation: '',
+    }
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    const data = new FormData(e.target);
+    e.preventDefault()
+    const data = new FormData(e.target)
 
     this.setState({
-      res: stringifyFormData(data)
-    });
+      res: stringifyFormData(data),
+    })
+  }
+
+  displayResult(data, field) {
+    const toRender = JSON.parse(data)
+    console.log(toRender[field])
+    return toRender[field]
   }
 
   render() {
-    // const { name, age, place, occupation } = this.state;
-
     return (
       <BasePage>
         <div className="container box">
-          <div className={"card-layout"}>
+          <div className={'card-layout'}>
             <div className="user-input-field">
               <form onSubmit={this.handleSubmit}>
                 <table>
@@ -75,28 +82,22 @@ export default class Timothy extends React.Component {
               </form>
             </div>
 
-            {() =>
-              this.state.res && (
-                <div className={"desc-panel"}>
-                  <h6>Hi, I am</h6>
-                  <h3>{name}</h3>
-                  <h4>{occupation}</h4>
-                  <p>{age}</p>
-                  <p>{place}</p>
-                  <pre>FormData {this.state.res}</pre>
-                </div>
-              )
-            }
-
             {this.state.res && (
-              <div className="res-block">
-                <h3>Data to be sent:</h3>
-                <pre>FormData {this.state.res}</pre>
+              <div className={'desc-panel res-block'}>
+                <h6>Hi, I am</h6>
+                <h3>{this.displayResult(this.state.res, 'name')}</h3>
+                <p>
+                  Currently {this.displayResult(this.state.res, 'age')}, bornt
+                  in {this.displayResult(this.state.res, 'place')}
+                </p>
+                <h4>
+                  Worked as a {this.displayResult(this.state.res, 'occupation')}
+                </h4>
               </div>
             )}
           </div>
         </div>
       </BasePage>
-    );
+    )
   }
 }
