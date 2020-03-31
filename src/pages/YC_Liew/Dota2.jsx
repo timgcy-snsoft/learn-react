@@ -6,14 +6,14 @@ function Dota2({itemss}) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetchItems();
-  }, []);
+    fetchItems()
+  }, [])
 
   const fetchItems = async () => {
     const object = itemss
     for (const property in object) {
-      let filter;
-      filter = `${object[property].id}`;
+      let filter
+      filter = `${object[property].id}`
       if (
         filter != 271 &&
         filter != 1021 &&
@@ -29,7 +29,7 @@ function Dota2({itemss}) {
         filter != 295 &&
         filter != 312 &&
         filter != 373 &&
-        !property.includes("recipe")
+        !property.includes('recipe')
       ) {
         setItems(preItems => {
           return [
@@ -37,13 +37,13 @@ function Dota2({itemss}) {
             {
               text: `${property}`,
               key: `${object[property].id}`,
-              img: "http://cdn.dota2.com/" + `${object[property].img}`
-            }
-          ];
-        });
+              img: 'http://cdn.dota2.com/' + `${object[property].img}`,
+            },
+          ]
+        })
       }
     }
-  };
+  }
 
   return (
     <>
@@ -60,7 +60,7 @@ function Dota2({itemss}) {
         ))}
       </div>
     </>
-  );
+  )
 }
 
-export default Dota2;
+export default Dota2
