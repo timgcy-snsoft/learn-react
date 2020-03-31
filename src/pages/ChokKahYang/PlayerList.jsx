@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-function PlayerList({ player, heros, items, itemsId }) {
+function PlayerList({ player, heros, items, itemsID }) {
 
     const { hero_id, level, personaname, isRadiant } = player
     const { kills, deaths, assists, last_hits, denies, gold_per_min, xp_per_min } = player
@@ -12,7 +12,7 @@ function PlayerList({ player, heros, items, itemsId }) {
 
     playerItems.forEach(
         (element, index, array) =>
-            array[index] = itemsId[element]
+            array[index] = itemsID[element]
     )
 
     playerItems.forEach(
