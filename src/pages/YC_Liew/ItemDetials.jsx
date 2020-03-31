@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Dota2.scss";
+import callApi from "../DotaAPI/FetchFunction";
 
-function itemDetails({ match }) {
+const itemDetails = ({ match} , props) => {
   useEffect(() => {
+    console.log(props,'hi')
     fetchItem();
     fetchAtt();
   }, []);
@@ -13,8 +15,7 @@ function itemDetails({ match }) {
   let filter = 0;
 
   const fetchItem = async () => {
-    const data = await fetch("https://api.opendota.com/api/constants/items");
-    const object = await data.json();
+    const object = await callApi("/constants/items");
     for (const property in object) {
       if (property === match.params.id) {
         setItem(preItem => {
@@ -39,12 +40,10 @@ function itemDetails({ match }) {
   };
 
   const fetchAtt = async () => {
-    const data = await fetch("https://api.opendota.com/api/constants/items");
-    const object = await data.json();
+    const object = await callApi("/constants/items");
     for (const property in object) {
       if (property === match.params.id) {
         if (object[property].attrib[filter] != undefined) {
-          console.log(object[property].attrib[filter], "filter");
           setAtt(preAtt => {
             return [
               ...preAtt,

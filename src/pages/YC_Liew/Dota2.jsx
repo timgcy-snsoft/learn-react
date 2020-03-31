@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Dota2.scss";
-import getApi from "../DotaAPI/FetchFunction";
 
-function Dota2() {
+function Dota2({itemss}) {
   const [items, setItems] = useState([]);
+  const passItems = itemss;
 
   useEffect(() => {
+    console.log(passItems,'hi')
     fetchItems();
   }, []);
 
   const fetchItems = async () => {
-    const object = await getApi("https://api.opendota.com/api/constants/items");
+    const object = itemss
     for (const property in object) {
       let filter;
       filter = `${object[property].id}`;
