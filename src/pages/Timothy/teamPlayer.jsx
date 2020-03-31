@@ -57,7 +57,10 @@ export default class TeamPlayer extends React.Component {
           <ul>
             <div>
               {team.map(player => (
-                <Link to={`/players/${player.account_id}`}>
+                <Link
+                  to={`/players/${player.account_id}`}
+                  key={player.account_id}
+                >
                   <li key={player.account_id}>
                     <figure className="card card--normal player-profile">
                       <div className="profile-pic card__image-container">

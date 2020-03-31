@@ -64,7 +64,7 @@ export default class proTeam extends React.Component {
           <ul>
             <div className="slideshow-slide">
               {filteredTeam.map(team => (
-                <Link to={`/team/${team.team_id}/players`}>
+                <Link to={`/team/${team.team_id}/players`} key={team.team_id}>
                   <div className="teamProfile">
                     <li key={team.team_id}>
                       <div className="slideshow-img">
