@@ -5,8 +5,6 @@ import MatchAPI from "../ChokKahYang/MatchAPI";
 import BasePage from "../basePage/basePage";
 import DotaTeam from "../Timothy/proteams";
 import callApi from "../DotaAPI/FetchFunction";
-
-
 export default class DotaApi extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +40,7 @@ export default class DotaApi extends React.Component {
         <MatchAPI publicMatches={publicMatches} heros={heroStats} clusters={clusters}
           items={items} itemsID={itemsID} />
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Heroes (Chan Vin Sheng)</h2>
-        <HeroApi />
+        <HeroApi items={heroStats} />
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Items (Liew Yih Chan)</h2>
         <ItemApi />
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Teams (Tim)</h2>

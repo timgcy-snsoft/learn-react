@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Dota2.scss'
-import getApi from '../DotaAPI/FetchFunction'
+import callApi from '../DotaAPI/FetchFunction'
 
 function Dota2() {
   const [items, setItems] = useState([])
@@ -11,7 +11,7 @@ function Dota2() {
   }, [])
 
   const fetchItems = async () => {
-    const object = await getApi('https://api.opendota.com/api/constants/items')
+    const object = await callApi('/constants/items')
     for (const property in object) {
       let filter
       filter = `${object[property].id}`
