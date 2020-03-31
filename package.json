@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "SNSKL",
   "scripts": {
-    "dev": "webpack-dev-server --env local --port 8080 --hot --mode development --config webpack.dev.config.js",
+    "dev": "webpack-dev-server --env local --port 3000 --hot --mode development --config webpack.dev.config.js",
     "serverA": "nodemon src/pages/chokkahyang/backend/serviceA/serverTopic.js"
   },
   "dependencies": {

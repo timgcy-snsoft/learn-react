@@ -3,39 +3,25 @@ import MatchList from './MatchList'
 import Pagination from './Pagination'
 import callApi from "../DotaAPI/FetchFunction"
 
-function MatchAPI() {
+function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
 
-    const [matches, setMatches] = useState([])
-    const [heros, setHeros] = useState([])
 
-    const [clusters, setCluster] = useState([])
     const [regions, setRegions] = useState({})
 
-    const [loading, setLoading] = useState(true)
     const [currentPage, setCurrentPage] = useState(1)
     const [matchesPerPage] = useState(15)
 
-    useEffect(() => {
-        const fetchMatchs = async () => {
-            setMatches(await callApi('/publicMatches'))
-            setHeros(await callApi('/heroStats'))
-            setCluster(await callApi('/constants/cluster'))
-            setLoading(false)
-        }
-        fetchMatchs()
-    }, [])
 
 
     const indexOfLastMatch = currentPage * matchesPerPage
     const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
-    const currentMatch = matches.slice(indexOfFirstMatch, indexOfLastMatch)
+    const currentMatch = publicMatches.slice(indexOfFirstMatch, indexOfLastMatch)
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-
     useEffect(() => {
         const fetchRegions = async () => {
-            const region = await getApi('https://api.opendota.com/api/constants/region')
+            const region = await callApi('/constants/region')
             setRegions({
                 ...region,
                 5: "SE Asia", 8: "RUSSIA", 12: "CHINA", 13: "CHINA",
@@ -44,10 +30,6 @@ function MatchAPI() {
         }
         fetchRegions()
     }, []);
-
-    if (loading) {
-        return <h2>Loading...</h2>
-    }
 
     return (
         <div className="m-3 clearfix">
@@ -61,9 +43,10 @@ function MatchAPI() {
             </div>
             {currentMatch.map(match =>
                 (<MatchList key={match.match_id}
-                    match={match} heros={heros} clusters={clusters} regions={regions} />)
+                    match={match} heros={heros} clusters={clusters} regions={regions}
+                    itemsID={itemsID} items={items} />)
             )}
-            <Pagination matchesPerPage={matchesPerPage} totalMatches={matches.length} paginate={paginate} />
+            <Pagination matchesPerPage={matchesPerPage} totalMatches={publicMatches.length} paginate={paginate} />
         </div>
     )
 }
