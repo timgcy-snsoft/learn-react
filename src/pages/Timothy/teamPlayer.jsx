@@ -1,7 +1,8 @@
-import React from "react";
-import BasePage from "../basePage/basePage";
-import "./teamPlayer.scss";
-import { Link } from "react-router-dom";
+import React from 'react'
+import BasePage from '../basePage/basePage'
+import './teamPlayer.scss'
+import { Link } from 'react-router-dom'
+import callApi from '../DotaAPI/FetchFunction'
 
 export default class TeamPlayer extends React.Component {
   /**
@@ -11,13 +12,13 @@ export default class TeamPlayer extends React.Component {
    * @object  @state  component state
    */
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       teamId: this.props.match.params.id,
       team: [],
-      match: false
-    };
+      match: false,
+    }
   }
 
   /**
@@ -25,19 +26,11 @@ export default class TeamPlayer extends React.Component {
    *
    * Fetch json array of objects from given url and update state.
    */
-  componentDidMount() {
-    fetch(`https://api.opendota.com/api/teams/${this.state.teamId}/players`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          team: data,
-          isLoaded: true
-        });
-        // console.log(data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  async componentDidMount() {
+    this.setState({
+      team: await callApi(`/teams/${this.state.teamId}/players`),
+      isLoaded: true,
+    })
   }
 
   /**
@@ -46,16 +39,16 @@ export default class TeamPlayer extends React.Component {
    * Render UI
    */
   render() {
-    const { id, isLoaded, team } = this.state;
+    const { id, isLoaded, team } = this.state
     const imgUrl =
-      "https://true-education.org/wp-content/uploads/2015/10/facebook-profile-picture-unknown-facts-about-facebook.jpg";
+      'https://true-education.org/wp-content/uploads/2015/10/facebook-profile-picture-unknown-facts-about-facebook.jpg'
 
     const winRate = (wins, games) => {
-      var rate = (parseInt(wins) / parseInt(games)) * 100;
-      return rate.toFixed(2);
-    };
+      var rate = (parseInt(wins) / parseInt(games)) * 100
+      return rate.toFixed(2)
+    }
 
-    if (!isLoaded) return <div>Loading...</div>;
+    if (!isLoaded) return <div>Loading...</div>
 
     return (
       <div className="team">
@@ -73,7 +66,7 @@ export default class TeamPlayer extends React.Component {
 
                       <figcaption className="card__caption">
                         <h3 className="card__name">
-                          {player.name ? player.name : "no name"}
+                          {player.name ? player.name : 'no name'}
                         </h3>
 
                         <table className="card__stats">
@@ -105,6 +98,6 @@ export default class TeamPlayer extends React.Component {
           </ul>
         </div>
       </div>
-    );
+    )
   }
 }
