@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import './Dota2.scss'
-import callApi from '../DotaAPI/FetchFunction'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Dota2.scss";
 
-function Dota2() {
-  const [items, setItems] = useState([])
+function Dota2({itemss}) {
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetchItems()
   }, [])
 
   const fetchItems = async () => {
-    const object = await callApi('/constants/items')
+    const object = itemss
     for (const property in object) {
       let filter
       filter = `${object[property].id}`
@@ -50,14 +49,14 @@ function Dota2() {
     <>
       <div className="Dota2-MainContent">
         {items.map(item => (
-          <a className="Dota2-div" key={item.key} href={`/Dota2/${item.text}`}>
+          <Link className="Dota2-div" key={item.key} to={{pathname:`/Dota2/${item.text}`,state:{itemss}}}>
             <img
               className="Dota2-img"
               src={item.img}
               alt={item.key}
               title={item.text}
             ></img>
-          </a>
+          </Link>
         ))}
       </div>
     </>
