@@ -52,7 +52,12 @@ function MatchList({ match, heros, clusters, regions, itemsID, items }) {
             <div className="m-1 w-50">
                 {radiantTeam.map(radiantHero =>
                     <span key={radiantHero.id}>
-                        <Link to={`../DotaAPI/HeroProfile/${radiantHero.localized_name}`}>
+                        <Link to={{
+                            pathname: `../DotaAPI/HeroProfile/${radiantHero.localized_name}`,
+                            state: {
+                                heroInfo: heros
+                            }
+                        }}>
                             <img src={imgAdd + radiantHero.img} width='45' title={radiantHero.localized_name} />
                         </Link>
 

@@ -32,7 +32,12 @@ function PlayerList({ player, heros, items, itemsID }) {
     return (
         <div className="flex text-center mb-2" id="none">
             <div className="w-25">
-                <Link to={`../HeroProfile/${hero.localized_name}`}>
+                <Link to={{
+                    pathname: `../HeroProfile/${hero.localized_name}`,
+                    state: {
+                        heroInfo: heros
+                    }
+                }}>
                     <img src={imgAdd + hero.img} width='60' title={hero.localized_name} />
 
                     <span className="position-absolute small-level">{level}</span>
