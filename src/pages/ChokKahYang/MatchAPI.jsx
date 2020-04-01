@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import Popup from 'reactjs-popup'
 import MatchList from './MatchList'
 import Pagination from './Pagination'
 import callApi from "../DotaAPI/FetchFunction"
+import Modal from "./Modal"
 
 function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
 
@@ -46,6 +48,39 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
                     match={match} heros={heros} clusters={clusters} regions={regions}
                     itemsID={itemsID} items={items} />)
             )}
+            <nav className="p-4 mr-4 float-left">
+                <ul className="pagination ">
+                    <Popup modal trigger={
+                        <button className="btn btn-dark m-1">
+                            Pie Chart
+                        </button>}>
+                        {close => <Modal close={close} />}
+                    </Popup>
+
+                    <Popup modal trigger={
+                        <button className="btn btn-dark m-1">
+                            Bar Chart
+                        </button>}>
+                        {close => <Modal close={close} />}
+                    </Popup>
+
+                    <Popup modal trigger={
+                        <button className="btn btn-dark m-1">
+                            Statistic (Line)
+                        </button>}>
+                        {close => <Modal close={close} />}
+                    </Popup>
+
+                    <Popup modal trigger={
+                        <button className="btn btn-dark m-1">
+                            Items
+                        </button>}>
+                        {close => <Modal close={close} />}
+                    </Popup>
+
+                </ul>
+            </nav>
+
             <Pagination matchesPerPage={matchesPerPage} totalMatches={publicMatches.length} paginate={paginate} />
         </div>
     )
