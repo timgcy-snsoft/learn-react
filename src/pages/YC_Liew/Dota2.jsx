@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./Dota2.scss";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import './Dota2.scss'
 
-function Dota2({itemss}) {
-  const [items, setItems] = useState([]);
+function Dota2({ itemss }) {
+  const [items, setItems] = useState([])
 
   useEffect(() => {
     fetchItems()
@@ -49,7 +49,11 @@ function Dota2({itemss}) {
     <>
       <div className="Dota2-MainContent">
         {items.map(item => (
-          <Link className="Dota2-div" key={item.key} to={{pathname:`/Dota2/${item.text}`,state:{itemss}}}>
+          <Link
+            className="Dota2-div"
+            key={item.key}
+            to={{ pathname: `/Dota2/${item.text}`, state: { itemss } }}
+          >
             <img
               className="Dota2-img"
               src={item.img}
