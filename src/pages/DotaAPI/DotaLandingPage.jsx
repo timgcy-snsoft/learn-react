@@ -56,11 +56,6 @@ export default class DotaApi extends React.Component {
         />
         <h2 className="ml-5 mt-2 text-white font-weight-bold">
           {' '}
-          Match Statistics
-        </h2>
-        <LineChart />
-        <h2 className="ml-5 mt-2 text-white font-weight-bold">
-          {' '}
           Heroes (Chan Vin Sheng)
         </h2>
         <HeroApi items={heroStats} />

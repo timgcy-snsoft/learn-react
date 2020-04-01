@@ -1,5 +1,5 @@
 Arguments: 
-  D:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add chart.js
+  D:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add reactjs-popup
 
 PATH: 
   C:\Python27\;C:\Python27\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;D:\flutter\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files (x86)\Yarn\bin\;D:\Program Files\Git\cmd;D:\Program Files\nodejs\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;D:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\user\AppData\Local\GitHubDesktop\bin;C:\Users\user\AppData\Roaming\Composer\vendor\bin;C:\Users\user\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\user\AppData\Local\atom-nightly\bin;D:\Program Files\nodejs\npm;C:\Program Files\MongoDB\Server\4.2\bin;C:\Users\user\AppData\Local\Android\Sdk\platform-tools;C:\Users\user\AppData\Local\Yarn\bin;C:\Users\user\AppData\Roaming\npm
@@ -41,6 +41,7 @@ npm manifest:
       "react-dom": "^16.12.0",
       "react-hook-form": "^4.10.1",
       "react-router-dom": "^5.1.2",
+      "reactjs-popup": "^1.5.0",
       "reactstrap": "^8.4.1",
       "request-promise-native": "^1.0.8",
       "socket.io": "^2.3.0"
