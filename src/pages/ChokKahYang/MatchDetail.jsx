@@ -11,7 +11,6 @@ const MatchDetail = (props) => {
     const [matchDetails, setMatchDetails] = useState([])
     const [loading, setLoading] = useState(true)
 
-
     useEffect(() => {
         const fetchDetails = async () => {
             const matchDetail = await callApi(`/matches/${id}`)

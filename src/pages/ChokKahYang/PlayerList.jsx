@@ -6,18 +6,19 @@ function PlayerList({ player, heros, items, itemsID }) {
     const { hero_id, level, personaname, isRadiant } = player
     const { kills, deaths, assists, last_hits, denies, gold_per_min, xp_per_min } = player
     const { item_0, item_1, item_2, item_3, item_4, item_5 } = player
-
     const playerItems = []
     playerItems.push(item_0, item_1, item_2, item_3, item_4, item_5)
 
     playerItems.forEach(
-        (element, index, array) =>
+        (element, index, array) => {
             array[index] = itemsID[element]
+        }
     )
 
     playerItems.forEach(
         (element, index, array) => {
             if (element !== undefined) {
+                //console.log(items[element].attrib)
                 array[index] = {
                     img: items[element].img,
                     text: element
@@ -25,6 +26,7 @@ function PlayerList({ player, heros, items, itemsID }) {
             }
         }
     );
+    //console.log(player)
 
     const imgAdd = "http://cdn.dota2.com/"
     const hero = heros.filter(hero => hero.id === hero_id)[0]

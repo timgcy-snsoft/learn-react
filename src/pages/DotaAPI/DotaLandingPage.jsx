@@ -33,7 +33,7 @@ export default class DotaApi extends React.Component {
   render() {
     const { isLoaded, publicMatches, heroStats, clusters, items, itemsID } = this.state
     if (!isLoaded) return <div>Loading...</div>
-
+    
     return (
       <BasePage title="Dota 2">
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Match (KY Chok)</h2>
@@ -42,7 +42,7 @@ export default class DotaApi extends React.Component {
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Heroes (Chan Vin Sheng)</h2>
         <HeroApi items={heroStats} />
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Items (Liew Yih Chan)</h2>
-        <ItemApi itemss={items}/>
+        <ItemApi itemss={items} />
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Teams (Tim)</h2>
         <DotaTeam />
       </BasePage>
