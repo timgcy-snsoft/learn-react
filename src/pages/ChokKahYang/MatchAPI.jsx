@@ -1,52 +1,53 @@
-import React, { useState, useEffect } from "react";
-import Popup from "reactjs-popup";
-import MatchList from "./MatchList";
-import Pagination from "./Pagination";
-import callApi from "../DotaAPI/FetchFunction";
-import Pie from "../DotaAPI/Pie";
-import Modal from "./Model";
+import React, { useState, useEffect } from 'react'
+import Popup from 'reactjs-popup'
+import MatchList from './MatchList'
+import Pagination from './Pagination'
+import callApi from '../DotaAPI/FetchFunction'
+import Pie from '../DotaAPI/Pie'
+import Modal from './Model'
+import LineChart from '../Timothy/lineChart'
+
 function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
-  const [regions, setRegions] = useState({});
+  const [regions, setRegions] = useState({})
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const [matchesPerPage] = useState(15);
+  const [matchesPerPage] = useState(15)
 
-  const indexOfLastMatch = currentPage * matchesPerPage;
+  const indexOfLastMatch = currentPage * matchesPerPage
 
-  const indexOfFirstMatch = indexOfLastMatch - matchesPerPage;
+  const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
 
-  const currentMatch = publicMatches.slice(indexOfFirstMatch, indexOfLastMatch);
+  const currentMatch = publicMatches.slice(indexOfFirstMatch, indexOfLastMatch)
 
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => setCurrentPage(pageNumber)
 
   useEffect(() => {
     const fetchRegions = async () => {
-      const region = await callApi("/constants/region");
+      const region = await callApi('/constants/region')
 
       setRegions({
         ...region,
 
-        5: "SE Asia",
-        8: "RUSSIA",
-        12: "CHINA",
-        13: "CHINA",
+        5: 'SE Asia',
+        8: 'RUSSIA',
+        12: 'CHINA',
+        13: 'CHINA',
 
-        17: "CHINA",
-        18: "CHINA",
-        20: "CHINA",
-        25: "CHINA"
-      });
-    };
+        17: 'CHINA',
+        18: 'CHINA',
+        20: 'CHINA',
+        25: 'CHINA',
+      })
+    }
 
-    fetchRegions();
-  }, []);
+    fetchRegions()
+  }, [])
 
   return (
     <div className="m-3 clearfix">
       <div className="flex font-weight-bold text-light text-center">
         <div className="m-2 w-25">Match ID</div>
-
         <div className="m-2 w-25">Start Time</div>
 
         <div className="m-2 w-25">Duration</div>
@@ -92,7 +93,7 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
               <button className="btn btn-dark m-1">Statistic (Line)</button>
             }
           >
-            {close => <Modal close={close} />}
+            {close => <LineChart close={close} />}
           </Popup>
 
           <Popup
@@ -109,7 +110,7 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
         paginate={paginate}
       />
     </div>
-  );
+  )
 }
 
-export default MatchAPI;
+export default MatchAPI
