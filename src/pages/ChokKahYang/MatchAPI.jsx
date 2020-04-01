@@ -103,7 +103,6 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
           </Popup>
         </ul>
       </nav>
-
       <Pagination
         matchesPerPage={matchesPerPage}
         totalMatches={publicMatches.length}
