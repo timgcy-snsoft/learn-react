@@ -3,17 +3,20 @@ import Popup from 'reactjs-popup'
 import MatchList from './MatchList'
 import Pagination from './Pagination'
 import callApi from "../DotaAPI/FetchFunction"
-import Modal from "./Modal"
-import ItemChart from './ItemChart'
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import subDays from "date-fns/subDays";
+
+import Modal from './Model'
+import ItemChart from './ItemChart'
+import Pie from '../DotaAPI/Pie'
+import LineChart from '../Timothy/lineChart'
 
 const date = new Date()
 date.setDate(date.getDate() - 1)
 
 function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
-
 
 
     const [startDate, setStartDate] = useState(date)
@@ -65,7 +68,7 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
                         <button className="btn btn-dark m-1">
                             Pie Chart
                         </button>}>
-                        {close => <Modal close={close} />}
+                        {close => <Pie info={currentMatch} heros={heros} close={close} />}
                     </Popup>
 
                     <Popup modal trigger={
@@ -79,7 +82,7 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
                         <button className="btn btn-dark m-1">
                             Statistic (Line)
                         </button>}>
-                        {close => <Modal close={close} />}
+                        {close => <LineChart close={close} />}
                     </Popup>
 
                     <Popup modal trigger={
@@ -110,6 +113,8 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
             <Pagination matchesPerPage={matchesPerPage} totalMatches={publicMatches.length} paginate={paginate} />
         </div>
     )
+
+
 }
 
 export default MatchAPI
