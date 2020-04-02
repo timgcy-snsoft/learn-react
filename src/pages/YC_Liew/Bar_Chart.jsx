@@ -7,6 +7,8 @@ const BarChart = ({ currentMatch, heros }) => {
     const [usage, setUsage] = useState([])
     const [Radiant, setRadiant] = useState([])
     const [Dire, setDire] = useState([])
+    const [load, setLoad] = useState(false);
+    
     let chartData
 
     useEffect(() => {
@@ -75,9 +77,9 @@ const BarChart = ({ currentMatch, heros }) => {
         }
 
         let sorted = Object.keys(counts).sort((a, b) => counts[b] - counts[a])
-        let top10 = sorted.slice(0, 10)
+        let top10 = sorted.slice(0, 15)
 
-        const radiant = objRadiant.filter(item => sorted.includes(item.id.toString()))
+        const radiant = objRadiant.filter(item => top10.includes(item.id.toString()))
         const arrayRadiantMap = radiant.reduce(
             (accumulator, currentValue) => ({
                 ...accumulator,
@@ -85,9 +87,9 @@ const BarChart = ({ currentMatch, heros }) => {
             }),
             {}
         );
-        setRadiant(sorted.map(id => arrayRadiantMap[id]))
+        setRadiant(top10.map(id => arrayRadiantMap[id]))
 
-        const dire = objDire.filter(item => sorted.includes(item.id.toString()))
+        const dire = objDire.filter(item => top10.includes(item.id.toString()))
         const arrayDireMap = dire.reduce(
             (accumulator, currentValue) => ({
                 ...accumulator,
@@ -95,12 +97,7 @@ const BarChart = ({ currentMatch, heros }) => {
             }),
             {}
         );
-        setDire(sorted.map(id => arrayDireMap[id]))
-        // setRadiant(objRadiant.filter(item => top10.includes(item.id.toString())))
-        // setDire(objDire.filter(item => top10.includes(item.id.toString())))
-
-        console.log(objRadiant.filter(item => top10.includes(item.id.toString())))
-        console.log(objDire.filter(item => top10.includes(item.id.toString())))
+        setDire(top10.map(id => arrayDireMap[id]))
         setUsage(
             Object.values(counts)
                 .sort()
@@ -116,24 +113,23 @@ const BarChart = ({ currentMatch, heros }) => {
             {}
         );
         setHeroName(top10.map(id => arrayMap[id]));
-        // setHeroName(heros.filter(hero => top10.includes(hero.id.toString())))
-
+        setLoad(true)
     }, [])
 
-    if (heroName !== undefined) {
+    if (load) {
         let datasetsRadiant = {
             label: 'Radiant',
             data: [
-                Radiant[0].usage,
-                Radiant[1].usage,
-                Radiant[2].usage,
-                Radiant[3].usage,
-                Radiant[4].usage,
-                Radiant[5].usage,
-                Radiant[6].usage,
-                Radiant[7].usage,
-                Radiant[8].usage,
-                Radiant[9].usage,
+                Radiant[0] === undefined ? 0 : Radiant[0].usage,
+                Radiant[1] === undefined ? 0 : Radiant[1].usage,
+                Radiant[2] === undefined ? 0 : Radiant[2].usage,
+                Radiant[3] === undefined ? 0 : Radiant[3].usage,
+                Radiant[4] === undefined ? 0 : Radiant[4].usage,
+                Radiant[5] === undefined ? 0 : Radiant[5].usage,
+                Radiant[6] === undefined ? 0 : Radiant[6].usage,
+                Radiant[7] === undefined ? 0 : Radiant[7].usage,
+                Radiant[8] === undefined ? 0 : Radiant[8].usage,
+                Radiant[9] === undefined ? 0 : Radiant[9].usage,
             ],
             backgroundColor: 'red',
             borderWidth: 0,
@@ -142,16 +138,16 @@ const BarChart = ({ currentMatch, heros }) => {
         let datasetsDie = {
             label: 'Dire',
             data: [
-                Dire[0].usage,
-                Dire[1].usage,
-                Dire[2].usage,
-                Dire[3].usage,
-                Dire[4].usage,
-                Dire[5].usage,
-                Dire[6].usage,
-                Dire[7].usage,
-                Dire[8].usage,
-                Dire[9].usage,
+                Dire[0] === undefined ? 0 : Dire[0].usage,
+                Dire[1] === undefined ? 0 : Dire[1].usage,
+                Dire[2] === undefined ? 0 : Dire[2].usage,
+                Dire[3] === undefined ? 0 : Dire[3].usage,
+                Dire[4] === undefined ? 0 : Dire[4].usage,
+                Dire[5] === undefined ? 0 : Dire[5].usage,
+                Dire[6] === undefined ? 0 : Dire[6].usage,
+                Dire[7] === undefined ? 0 : Dire[7].usage,
+                Dire[8] === undefined ? 0 : Dire[8].usage,
+                Dire[9] === undefined ? 0 : Dire[9].usage,
             ],
             backgroundColor: 'green',
             borderWidth: 0,
@@ -174,15 +170,18 @@ const BarChart = ({ currentMatch, heros }) => {
         }
     }
 
+    if (!load) return <div>Loading...</div>;
     return (
         <div className="chart">
             <Bar
                 data={chartData}
                 options={{
+                    dataset: {
+                        barPercentage: 1,
+                        categoryPercentage: 0.6
+                    },
                     scales: {
                         xAxes: [{
-                            barPercentage: 1,
-                            categoryPercentage: 0.6
                         }],
                         yAxes: [{
                             ticks: {
