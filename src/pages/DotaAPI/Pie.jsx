@@ -30,6 +30,12 @@ export default function Modal({ info, heros }) {
         .sort()
         .reverse()
     );
+    console.log(sorted);
+    console.log(
+      Object.values(counts)
+        .sort()
+        .reverse()
+    );
     setTop10(sorted.slice(0, 10));
 
     setLoad(true);
@@ -37,19 +43,27 @@ export default function Modal({ info, heros }) {
 
   if (load) {
     const heroName = heros.filter(hero => top10.includes(hero.id.toString()));
-    console.log(heroName);
+    const arrayMap = heroName.reduce(
+      (accumulator, currentValue) => ({
+        ...accumulator,
+        [currentValue.id]: currentValue
+      }),
+      {}
+    );
+    const result = top10.map(id => arrayMap[id]);
+
     data = {
       labels: [
-        heroName[0].localized_name,
-        heroName[1].localized_name,
-        heroName[2].localized_name,
-        heroName[3].localized_name,
-        heroName[4].localized_name,
-        heroName[5].localized_name,
-        heroName[6].localized_name,
-        heroName[7].localized_name,
-        heroName[8].localized_name,
-        heroName[9].localized_name
+        result[0].localized_name,
+        result[1].localized_name,
+        result[2].localized_name,
+        result[3].localized_name,
+        result[4].localized_name,
+        result[5].localized_name,
+        result[6].localized_name,
+        result[7].localized_name,
+        result[8].localized_name,
+        result[9].localized_name
       ],
       datasets: [
         {
