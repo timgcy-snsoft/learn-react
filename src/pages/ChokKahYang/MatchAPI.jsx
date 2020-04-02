@@ -12,6 +12,7 @@ import Modal from './Model'
 import ItemChart from './ItemChart'
 import Pie from '../DotaAPI/Pie'
 import LineChart from '../Timothy/lineChart'
+import BarChart from '../YC_Liew/Bar_Chart'
 
 const date = new Date()
 date.setDate(date.getDate() - 1)
@@ -84,7 +85,13 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
             modal
             trigger={<button className="btn btn-dark m-1">Bar Chart</button>}
           >
-            {close => <Modal close={close} />}
+            {close => (
+              <BarChart
+                currentMatch={currentMatch}
+                heros={heros}
+                close={close}
+              />
+            )}
           </Popup>
 
           <Popup
