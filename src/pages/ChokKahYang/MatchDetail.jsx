@@ -19,6 +19,7 @@ const MatchDetail = props => {
     fetchDetails();
   }, []);
 
+
   const {
     radiant_win,
     radiant_score,

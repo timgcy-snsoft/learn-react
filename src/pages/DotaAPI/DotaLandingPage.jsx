@@ -5,7 +5,7 @@ import MatchAPI from '../ChokKahYang/MatchAPI'
 import BasePage from '../basePage/basePage'
 import DotaTeam from '../Timothy/proteams'
 import callApi from '../DotaAPI/FetchFunction'
-import LineChart from '../Timothy/lineChart'
+
 export default class DotaApi extends React.Component {
   constructor(props) {
     super(props)
@@ -40,7 +40,7 @@ export default class DotaApi extends React.Component {
       itemsID,
     } = this.state
     if (!isLoaded) return <div>Loading...</div>
-
+    
     return (
       <BasePage title="Dota 2">
         <h2 className="ml-5 mt-2 text-white font-weight-bold">
@@ -59,10 +59,7 @@ export default class DotaApi extends React.Component {
           Heroes (Chan Vin Sheng)
         </h2>
         <HeroApi items={heroStats} />
-        <h2 className="ml-5 mt-2 text-white font-weight-bold">
-          {' '}
-          Items (Liew Yih Chan)
-        </h2>
+        <h2 className="ml-5 mt-2 text-white font-weight-bold"> Items (Liew Yih Chan)</h2>
         <ItemApi itemss={items} />
         <h2 className="ml-5 mt-2 text-white font-weight-bold"> Teams (Tim)</h2>
         <DotaTeam />
