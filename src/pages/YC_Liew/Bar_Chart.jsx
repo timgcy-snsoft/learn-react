@@ -75,43 +75,48 @@ const BarChart = ({ currentMatch, heros }) => {
         }
 
         let sorted = Object.keys(counts).sort((a, b) => counts[b] - counts[a])
-        let top10 = sorted.slice(0, 15)
+        let top10 = sorted.slice(0, 10)
 
-        console.log(radiantArray,'radiant')
-        console.log(objRadiant,'OBJ')
-        console.log(top10,'top')
-        console.log(countsRadiant,'a')
-        console.log(countsDire,'b')
-        console.log(counts,'c')
+        const radiant = objRadiant.filter(item => sorted.includes(item.id.toString()))
+        const arrayRadiantMap = radiant.reduce(
+            (accumulator, currentValue) => ({
+                ...accumulator,
+                [currentValue.id]: currentValue
+            }),
+            {}
+        );
+        setRadiant(sorted.map(id => arrayRadiantMap[id]))
 
-        // for(let i = 0;i < 10;i++)
-        // {
-        //     setRadiant(preRadiant => {
-        //         let num = top10[i]
-        //         return [
-        //             ...preRadiant,
-        //             objRadiant.map(item => filter)
-        //         ]
-        //     })
-        // }
+        const dire = objDire.filter(item => sorted.includes(item.id.toString()))
+        const arrayDireMap = dire.reduce(
+            (accumulator, currentValue) => ({
+                ...accumulator,
+                [currentValue.id]: currentValue
+            }),
+            {}
+        );
+        setDire(sorted.map(id => arrayDireMap[id]))
+        // setRadiant(objRadiant.filter(item => top10.includes(item.id.toString())))
+        // setDire(objDire.filter(item => top10.includes(item.id.toString())))
 
-        // console.log(counts,'counts')
-        // console.log(sorted,'sorted')
-        // console.log(top10,'top10')
-        // console.log(objRadiant.filter(item => top10.includes(item.id.toString())),'radiant')
-        // console.log(objDire.filter(item => top10.includes(item.id.toString())),'dire')
-        // console.log(objRadiant,'obj')
-        // console.log(objDire,'obj2')
-
-        setRadiant(objRadiant.filter(item => top10.includes(item.id.toString())))
-        setDire(objDire.filter(item => top10.includes(item.id.toString())))
+        console.log(objRadiant.filter(item => top10.includes(item.id.toString())))
+        console.log(objDire.filter(item => top10.includes(item.id.toString())))
         setUsage(
             Object.values(counts)
                 .sort()
                 .reverse()
         )
 
-        setHeroName(heros.filter(hero => top10.includes(hero.id.toString())))
+        const name = heros.filter(hero => top10.includes(hero.id.toString()));
+        const arrayMap = name.reduce(
+            (accumulator, currentValue) => ({
+                ...accumulator,
+                [currentValue.id]: currentValue
+            }),
+            {}
+        );
+        setHeroName(top10.map(id => arrayMap[id]));
+        // setHeroName(heros.filter(hero => top10.includes(hero.id.toString())))
 
     }, [])
 
@@ -135,7 +140,7 @@ const BarChart = ({ currentMatch, heros }) => {
         }
 
         let datasetsDie = {
-            label: 'Die',
+            label: 'Dire',
             data: [
                 Dire[0].usage,
                 Dire[1].usage,
