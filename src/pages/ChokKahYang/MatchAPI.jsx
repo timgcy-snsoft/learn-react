@@ -75,7 +75,7 @@ function MatchAPI({ publicMatches, heros, clusters, itemsID, items }) {
                         <button className="btn btn-dark m-1">
                             Bar Chart
                         </button>}>
-                        {close => <Modal close={close} />}
+                        {close => <BarChart currentMatch={currentMatch} heros={heros} close={close}/>}
                     </Popup>
 
                     <Popup modal trigger={
